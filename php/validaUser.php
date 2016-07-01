@@ -1,8 +1,9 @@
 <?php
-    $usuario = $_POST["usuario"];
+    $usuario = $_POST["user"];
+    $pass = $_POST["pass"];
 
-    if(isset($usuario)) {
-        comprobarUser($usuario);
+    if(isset($usuario) || isset($pass)) {
+        comprobarLogin($usuario,$pass);
     } else {
         echo "error";
     }
@@ -11,10 +12,10 @@
         $conexi->close();
     }
 
-    function comprobarUser($usu) {
+    function comprobarLogin($usu, $passVal) {
 
         $con = conectar();
-        $sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."'";
+        $sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."' AND contrasena='".$passVal."'";
         $result = $con->query($sql);
 
         if($result->num_rows > 0) {
