@@ -1,6 +1,9 @@
 $(document).ready(function() {
-    habilitaCam(true);
-    coverDisabled(true);
+    setTimeout(function() {
+        habilitaCam(true);
+        coverDisabled(true);
+    }, 50);
+    errorUrl();
 });
 
 var validaUser = false;
@@ -43,32 +46,6 @@ function validUser(dato) {
                 }
             }
         });
-    }
-}
-
-function validaSesion() {
-    eliminarError();
-    var value = document.getElementById("contrasena").value;
-    if(validaUser === true) {
-        if(value == "") {
-            crearError("Campo vacío", "error1");
-        } else {
-            var valueUser = document.getElementById("usuario").value;
-            var parametros = {pass: value, user: valueUser};
-            $.ajax({
-                method: "POST",
-                url: "php/validaUser.php",
-                data: parametros,
-                dataType: "text", 
-                success: function(datos) {
-                    if(datos === "true") {
-                        alert("datos verdaderos");
-                    } else {
-                        crearError("Contraseña incorrecta", "error1");
-                    }
-                }
-            });
-        }
     }
 }
 
@@ -124,4 +101,26 @@ function animSvg(path1, path2, path3) {
     ruta.style.strokeDashoffset = path1;//70
     ruta1.style.strokeDashoffset = path2;//50
     ruta2.style.strokeDashoffset = path3;//50
+}
+
+function errorUrl() {
+    var url = document.URL;
+    var index = url.indexOf("?");
+    var datoUrl = url.substring(index + 1, url.length);
+    var div = datoUrl.split("=");
+    if(div[0] == "error") {
+        console.log("entro en error");
+        var datoError = parseInt(div[1]);
+        switch(datoError) {
+            case 0:
+                crearError("Campo vacío", "error1");
+                break;
+            case 1:
+                crearError("Contraseña incorrecta", "error1");
+                break;
+        }
+    } else {
+        //window.location.assign("index.php?" + div[1]);
+    }
+    
 }

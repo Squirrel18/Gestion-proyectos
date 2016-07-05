@@ -73,7 +73,7 @@ p {
     color: #09556C;
 }
 
-input[type="text"], input[type="password"], input[type="button"] {
+input[type="text"], input[type="password"], input[type="submit"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
@@ -86,11 +86,12 @@ input[type="text"], input[type="password"], input[type="button"] {
     background: rgba(0, 0, 0, 0); 
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="button"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, input[type="submit"]:focus {
     outline: 0px;
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+    box-shadow: 0 0 0px 1000px white inset;
 }
 
 #usuario {
@@ -166,6 +167,7 @@ input:-webkit-autofill {
 
 #rutaCheck, #rutaCheckX {
     transition: stroke-dashoffset 500ms ease-in-out;
+    -moz-transition: stroke-dashoffset 500ms ease-in-out;
 }
 
 #noCheck {
@@ -179,6 +181,7 @@ input:-webkit-autofill {
 
 #rutaCheckX2 {
     transition: stroke-dashoffset 500ms ease-in-out 200ms;
+    -moz-transition: stroke-dashoffset 500ms ease-in-out 200ms;
 }
 
 #temp_idButton {
@@ -199,7 +202,17 @@ input:-webkit-autofill {
     text-align: center;
     font-family: 'Roboto-Medium';
     font-size: 16px;
-    border-radius: 3px;
+}
+
+#divDisabled {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 320px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.6);
+    top: 52%;
+    left: 18%;
 }
 
 .error {
@@ -219,15 +232,3 @@ input:-webkit-autofill {
     left: 30%;
     color: #B71C1C;
 }
-
-#divDisabled {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 320px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.6);
-    top: 52%;
-    left: 18%;
-}
-
