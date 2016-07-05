@@ -195,36 +195,29 @@ input:-webkit-autofill {
 
 #textoError {
     position: absolute;
-    padding: 0;
     margin: 0;
-    top: 45%;
-    left: 30%;
-    width: 200px;
-    height: 25px;
-    padding-top: 5px;
     text-align: center;
-    font-family: 'Roboto-Regular';
+    font-family: 'Roboto-Medium';
     font-size: 16px;
-    color: #fff;
-    background: #09556C;
     border-radius: 3px;
 }
 
-#textoError1 {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    top: 74%;
-    left: 30%;
+.error {
     width: 200px;
     height: 25px;
     padding-top: 5px;
-    text-align: center;
-    font-family: 'Roboto-Regular';
-    font-size: 16px;
-    color: #fff;
-    background: #09556C;
-    border-radius: 3px;
+    top: 43%;
+    left: 30%;
+    color: #B71C1C;
+}
+
+.error1 {
+    width: 200px;
+    height: 25px;
+    padding-top: 5px;
+    top: 73%;
+    left: 30%;
+    color: #B71C1C;
 }
 
 #divDisabled {

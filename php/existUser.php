@@ -14,7 +14,20 @@
     function comprobarUser($usu) {
 
         $con = conectar();
-        $sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."'";
+        if($stmt = $con->prepare("SELECT usuario FROM login WHERE estado='1' AND usuario=?")) {
+            $stmt->bind_param("s", $usu);
+            $stmt->execute();
+            //$stmt->bind_result($resultado);
+            if($stmt->fetch()) {
+                echo "true";
+            } else {
+                echo "false";
+            }
+            $stmt->close();
+        }
+
+        
+        /*$sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."'";
         $result = $con->query($sql);
 
         if($result->num_rows > 0) {
@@ -22,6 +35,7 @@
         } else {
             echo "false";
         }
+        }*/
         cerrar($con);
     }
 
