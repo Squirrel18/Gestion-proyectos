@@ -19,7 +19,7 @@ function validUser(dato) {
         animSvg(70, 0, 0);
         coverDisabled(true);
         habilitaCam(true);
-        crearError("Únicamente números", "error");
+        crearError(0,0);
         document.getElementById("contrasena").value = "";
     } else {
         $.ajax({
@@ -39,7 +39,7 @@ function validUser(dato) {
                     animSvg(70, 0, 0);
                     coverDisabled(true);
                     habilitaCam(true);
-                    crearError("Usuario incorrecto", "error");
+                    crearError(1,0);
                 }
             }
         });
@@ -51,7 +51,7 @@ function validaSesion() {
     var value = document.getElementById("contrasena").value;
     if(validaUser === true) {
         if(value == "") {
-            crearError("Campo vacío", "error1");
+            crearError(2,1);
         } else {
             var valueUser = document.getElementById("usuario").value;
             var parametros = {pass: value, user: valueUser};
@@ -64,7 +64,7 @@ function validaSesion() {
                     if(datos === "true") {
                         alert("datos verdaderos");
                     } else {
-                        crearError("Contraseña incorrecta", "error1");
+                        crearError(3,1);
                     }
                 }
             });
@@ -72,20 +72,21 @@ function validaSesion() {
     }
 }
 
-function crearError(texto, nomClase) {
-    /*
-    Los parametros deben ser el texto y el nombre de la clase con los valores de width, height, padding, posición y el color.
-    */ 
+function crearError(dato,datoId) {
+    var textos = ['Únicamente números','Usuario incorrecto','Campo vacío','Contraseña incorrecta'];
+    var id = ['textoError','textoError1'];
     var p = document.createElement("p");
-    p.id = "textoError";
-    p.classList = nomClase;
-    p.innerText = texto;
+    p.id = id[datoId];
+    p.innerText = textos[dato];
     document.getElementById("card").appendChild(p);
 }
 
 function eliminarError() {
     if(document.getElementById("textoError")) {
         document.getElementById("card").removeChild(document.getElementById("textoError"));
+    }
+    if(document.getElementById("textoError1")) {
+        document.getElementById("card").removeChild(document.getElementById("textoError1"));
     }
 }
 
