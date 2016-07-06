@@ -1,8 +1,11 @@
 <?php
     session_start();
+    require 'verifDatos.php';
+    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $usuario = $_POST["user"];
-        $pass = $_POST["key"];
+
+        $usuario = verifDatos($_POST["user"]);
+        $pass = verifDatos($_POST["key"]);
     }
     
     if(isset($usuario) || isset($pass)) {

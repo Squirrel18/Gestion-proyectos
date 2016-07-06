@@ -16,7 +16,7 @@
             <i class="material-icons md-48" id="fontAccount">account_circle</i>
             <p id="pUsuario">Usuario</p>
             <form id="signIn" action="php/validaUser.php" method="POST">
-                <input type="text" id="usuario" name="user" maxlength="25" onfocusout="validUser(this.value)" oninput="eliminarError()" onfocus="eliminarError()">
+                <input type="text" id="usuario" name="user" maxlength="25" required onfocusout="validUser(this.value)" oninput="eliminarError()" onfocus="eliminarError()">
                 <input type="password" id="contrasena" name="key" maxlength="15" oninput="eliminarError()" onfocus="eliminarError()">
                 <input type="submit" id="bIngresa" value="Ingresar">
             </form>

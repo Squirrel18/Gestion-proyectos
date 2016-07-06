@@ -202,6 +202,7 @@ input:-webkit-autofill {
     text-align: center;
     font-family: 'Roboto-Medium';
     font-size: 16px;
+    z-index: 1;
 }
 
 #divDisabled {

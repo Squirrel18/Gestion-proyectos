@@ -1,5 +1,6 @@
 <?php
-    $usuario = $_POST["usuario"];
+    require 'verifDatos.php';
+    $usuario = verifDatos($_POST["usuario"]);
 
     if(isset($usuario)) {
         comprobarUser($usuario);
@@ -25,17 +26,6 @@
             }
             $stmt->close();
         }
-
-        
-        /*$sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."'";
-        $result = $con->query($sql);
-
-        if($result->num_rows > 0) {
-            echo "true";
-        } else {
-            echo "false";
-        }
-        }*/
         cerrar($con);
     }
 
