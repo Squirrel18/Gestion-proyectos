@@ -18,10 +18,10 @@
         <div id="card">
             <i class="material-icons md-48" id="fontNewFolder">person_add</i>
             <p id="textNewUser">Nuevo usuario</p>
-            <form id="formNewUser">
-                <input id="nombre" type="text" placeholder="Nombre" required>
-                <input id="numero" type="number" placeholder="Identificación" required>
-                <input id="contrasena" type="text" placeholder="Contraseña" required>
+            <form id="formNewUser" action="../php/nuevoUser.php" method="POST">
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre" required>
+                <input id="numero" name="numero" type="number" placeholder="Identificación" required>
+                <input id="contrasena" name="pass" type="text" placeholder="Contraseña" required>
                 <input id="lista" list="Rol" name="rol" placeholder="Rol" required>
                 <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>

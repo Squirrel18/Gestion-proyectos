@@ -14,7 +14,8 @@
             $conten[$var1] = array_map("utf8_encode", $fila);
             $var1++;
         }
-        echo json_encode($conten);
+        $json = json_encode($conten);
+        echo $json;
         $stmt->close();
     }
     $conexion->close();
