@@ -5,17 +5,16 @@
         die("Connection failed: " . $conexion->connect_error);
     }
 
-    if($stmt = $conexion->prepare("SELECT id, nombre, nameCheck FROM permisos")) {
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-        $conten = array();
-        $var1 = 0;
+    $sql = "SELECT rol FROM rol ORDER BY rol ASC";
+    $resultado = $conexion->query($sql);
+    $conten = array();
+    $var1 = 0;
+    if($resultado->num_rows > 0) {
         while($fila = $resultado->fetch_array(MYSQLI_ASSOC)) {
             $conten[$var1] = array_map("utf8_encode", $fila);
             $var1++;
         }
-        echo json_encode($conten);
-        $stmt->close();
     }
+    echo json_encode($conten);
     $conexion->close();
 ?>

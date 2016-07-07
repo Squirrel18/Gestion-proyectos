@@ -23,19 +23,9 @@
                 <input id="numero" type="number" placeholder="Identificación" required>
                 <input id="contrasena" type="text" placeholder="Contraseña" required>
                 <input id="lista" list="Rol" name="rol" placeholder="Rol" required>
-                <datalist id="Rol">
-                    <option value="Administrador">
-                    <option value="Desarrollo">
-                    <option value="Diseño">
-                    <option value="Medico">
-                </datalist>
+                <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>
-                <input class="permBox" name="uno" type="checkbox" value="1">
-                <input class="permBox" name="dos" type="checkbox" value="2">
-                <input class="permBox" name="tres" type="checkbox" value="3">
-                <p class="textBox">Gestión de usuarios</p>
-                <p class="textBox">Gestión de proyectos</p>
-                <p class="textBox">Buscar proyectos</p>
+                <div id="permisos"></div>
                 <input id="submitNUser" type="submit" value="Listo">
             </form>
         </div>
@@ -44,13 +34,46 @@
     </body>
     <script>
         $.ajax({
-            method: "POST",
             url: "../php/permisos.php",
-            dataType: "text", 
+            contentType: "application/json; charset=utf-8",
+		    dataType: "json",
             success: function(datos) {
-                //alert(datos);
-                document.getElementById("texto").innerHTML = datos;
+                genPermisos(datos);
             }
         });
+
+        $.ajax({
+            url: "../php/rol.php",
+            contentType: "application/json; charset=utf-8",
+		    dataType: "json",
+            success: function(datos) {
+                genRol(datos);
+            }
+        });
+
+        function genPermisos(dato) {
+            var contenPer = document.getElementById("permisos");
+            for(var i = 0; i < dato.length; i++) {
+                var input = document.createElement("input");
+                var span = document.createElement("span");
+                span.classList.add("textBox");
+                span.innerText = dato[i].nombre;
+                input.type = "checkbox";
+                input.classList.add("permBox");
+                input.name = dato[i].nameCheck;
+                input.value = dato[i].id;
+                contenPer.appendChild(input);
+                contenPer.appendChild(span);
+            }
+        }
+
+        function genRol(dato) {
+            var contenData = document.getElementById("Rol");
+            for(var i = 0; i < dato.length; i++) {
+                var option = document.createElement("option");
+                option.value = dato[i].rol;
+                contenData.appendChild(option);
+            }
+        }
     </script>
 </html>
