@@ -284,14 +284,71 @@ input::-moz-placeholder {
 
 #submitNUser:active {
     background: #09556C;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
     color: #FFF;
 }
 
 #permisos {
     position: absolute;
     width: 300px;
-    height: 150px;
+    height: 145px;
     top: 74%;
     left: 14.5%;
     overflow: auto;
 }
+ .errorNombre {
+     position: absolute;
+     top: 31.5%;
+     left: 14.5%;
+     font-family: 'Roboto-Regular';
+     font-size: 16px;
+     width: 200px;
+     height: 20px;
+     padding: 0;
+     margin: 0;
+     color: #B71C1C;
+     text-align: left;
+ }
+
+ .errorRol {
+     position: absolute;
+     top: 61.5%;
+     left: 14.5%;
+     font-family: 'Roboto-Regular';
+     font-size: 16px;
+     width: 200px;
+     height: 20px;
+     padding: 0;
+     margin: 0;
+     color: #B71C1C;
+     text-align: left;
+ }
+
+ .errorPass {
+     position: absolute;
+     top: 51.5%;
+     left: 14.5%;
+     font-family: 'Roboto-Regular';
+     font-size: 16px;
+     width: 250px;
+     height: 20px;
+     padding: 0;
+     margin: 0;
+     color: #B71C1C;
+     text-align: left;
+ }
+
+ .errorCheck {
+     position: absolute;
+     top: 93.5%;
+     left: 14.5%;
+     font-family: 'Roboto-Regular';
+     font-size: 16px;
+     width: 200px;
+     height: 20px;
+     padding: 0;
+     margin: 0;
+     color: #B71C1C;
+     text-align: left;
+ }

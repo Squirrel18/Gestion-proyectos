@@ -1,5 +1,5 @@
 <?php
-    require 'verifDatos.php';
+    require 'verifData.php';
     $usuario = verifDatos($_POST["usuario"]);
 
     if(isset($usuario)) {

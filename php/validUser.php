@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require 'verifDatos.php';
+    require 'verifData.php';
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
