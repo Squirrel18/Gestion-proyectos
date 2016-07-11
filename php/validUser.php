@@ -22,7 +22,7 @@
 
         $con = conectar();
 
-        if($stmt = $con->prepare("SELECT usuario FROM login WHERE estado='1' AND usuario=? AND contrasena=?")) {
+        if($stmt = $con->prepare("SELECT numero FROM login WHERE estado='1' AND numero=? AND contrasena=?")) {
             $stmt->bind_param("ss", $usu, $passVal);
             $stmt->execute();
             //$stmt->bind_result($resultado);

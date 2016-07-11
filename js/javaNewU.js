@@ -26,6 +26,11 @@ function genPermisos(dato) {
         span.classList.add("textBox");
         span.innerText = dato[i].nombre;
         input.type = "checkbox";
+        input.onclick = function() {
+            if(document.getElementById("textoError")) {
+                document.getElementById('card').removeChild(document.getElementById("textoError"));
+            }
+        }
         input.classList.add("permBox");
         input.name = dato[i].nameCheck;
         input.value = dato[i].id;

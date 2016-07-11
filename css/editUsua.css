@@ -91,24 +91,24 @@ p {
     left: 63%;
 }
 
-#fontNewFolder {
+#fontEdit {
     font-size: 96px;
     position: absolute; 
     top: 2%;
-    left: 41.5%;
+    left: 43.5%;
     color: #09556C;
 }
 
-#textNewUser {
+#textEdit {
     position: absolute;
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
     top: 15%;
-    left: 34.5%;
+    left: 37%;
 }
 
-input[type="text"], input[type="number"] {
+input[type="text"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
@@ -123,7 +123,7 @@ input[type="text"], input[type="number"] {
     /*background: darkred;*/
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
@@ -157,7 +157,7 @@ input[type="checkbox"]:checked {
     background-position-y: 3px;
 }
 
-input[type="text"]:focus, input[type="number"]:focus, input[type="submit"]:focus {
+input[type="text"]:focus, input[type="submit"]:focus, input[type="button"] {
     outline: 0px;
 }
 
@@ -165,22 +165,6 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     box-shadow: 0 0 0px 1000px white inset;
 }
-
-/*input::-webkit-calendar-picker-indicator {
-  color: rgba(0, 0, 0, 0);
-  opacity: 1
-}
-
-input::-webkit-calendar-picker-indicator::after {
-  content: '';
-  display: block;
-  background: url("../assets/logo.png") no-repeat;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  transform: translateX(-2%);
-
-}*/
 
 input::-webkit-input-placeholder {
     color: #09556C;
@@ -194,22 +178,10 @@ input::-moz-placeholder {
     font-size: 18px;
 }
 
-#nombre {
-    position: absolute;
-    border-bottom: solid #09556C 1px;
-    top: 25%;
-}
-
-#numero {
-    position: absolute;
-    border-bottom: solid #09556C 1px;
-    top: 35%;
-}
-
 #contrasena {
     position: absolute;
     border-bottom: solid #09556C 1px;
-    top: 45%;
+    top: 30%;
 }
 
 #lista {
@@ -225,7 +197,7 @@ input::-moz-placeholder {
     width: 500px;
     height: 40px;
     border-bottom: solid #09556C 1px;
-    top: 55%;
+    top: 42%;
     left: 14.5%;
 }
 
@@ -235,11 +207,20 @@ input::-moz-placeholder {
 
 #textPermiso {
     position: absolute;
-    top: 67%;
+    top: 55%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 20px;
     color: #09556C;
+}
+
+#permisos {
+    position: absolute;
+    width: 300px;
+    height: 145px;
+    top: 60%;
+    left: 14.5%;
+    overflow: auto;
 }
 
 .permBox {
@@ -288,66 +269,31 @@ input::-moz-placeholder {
     color: #FFF;
 }
 
-#permisos {
+#elimUser {
     position: absolute;
-    width: 300px;
-    height: 145px;
-    top: 74%;
+    /*font-family: 'Roboto-Regular';*/
+    font-size: 24px;
+    width: 230px;
+    height: 50px;
+    color: #FFF;
+    top: 85%;
     left: 14.5%;
-    overflow: auto;
+    background: #D32F2F;
+    border-radius: 2px;
+    -webkit-transition: box-shadow 0.2s ease-in-out,
+                        border 0.5s ease-in-out;
+    -moz-transition: box-shadow 0.2s ease-in-out,
+                     border 0.5s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out,
+                border 0.5s ease-in-out;
 }
- .errorNombre {
-     position: absolute;
-     top: 31.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
 
- .errorRol {
-     position: absolute;
-     top: 61.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
+#elimUser:hover {
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
 
- .errorPass {
-     position: absolute;
-     top: 51.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 250px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
-
- .errorCheck {
-     position: absolute;
-     top: 94.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
+#elimUser:active {
+    background: #E5E5E5;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    color: #D32F2F;
+}
