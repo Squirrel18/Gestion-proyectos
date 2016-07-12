@@ -20,7 +20,7 @@
         <div id="card">
             <i class="material-icons md-48" id="fontNewFolder">person_add</i>
             <p id="textNewUser">Nuevo usuario</p>
-            <form id="formNewUser" action="../php/newUser.php" onsubmit="return validForm()" method="POST">
+            <form id="formNewUser" action="../php/newUser.php" onsubmit="return validForm()" method="POST" accept-charset="UTF-8">
                 <input id="nombre" name="nombre" type="text" placeholder="Nombre" required autocomplete="off">
                 <input id="numero" name="numero" type="number" placeholder="Identificación" required>
                 <input id="contrasena" name="pass" type="text" placeholder="Contraseña" required autocomplete="off">

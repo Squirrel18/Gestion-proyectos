@@ -1,4 +1,5 @@
 <?php
+    //header("Content-type: text/html; charset=utf8");
     require 'permit.php';
     $jsonDeco = json_decode($json);
     echo "<br>";
@@ -36,6 +37,10 @@
             $realizado = false;
             die("Connection failed: " . $conexion->connect_error);
         } 
+
+        if(!$conexion->set_charset("utf8")) {
+            die("no selecciono el conjunto de caracteres");
+        }
 
         if($stmt = $conexion->prepare("INSERT INTO login(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
             $stmt->bind_param("sssss", $nom, $num, $pass, $rol, $esta);

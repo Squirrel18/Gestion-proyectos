@@ -143,6 +143,10 @@ input[type="search"]:focus {
 
 }
 
+a {
+    text-decoration: none;
+}
+
 #contenCoin {
     position: absolute;
     top: 42%;
@@ -154,7 +158,6 @@ input[type="search"]:focus {
 }
 
 .listaCoin {
-    position: relative;
     width: 500px;
     text-align: left;
     top: 0;
@@ -169,4 +172,8 @@ input[type="search"]:focus {
 .nombre {
     font-family: 'Roboto-Regular';
     color: #09556C;
+}
+
+.linkCoinci {
+    position: relative;
 }

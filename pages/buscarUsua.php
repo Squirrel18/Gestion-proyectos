@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
-        <script src="../js/javaBusU.js" type="text/javascript"></script>
+        <script src="../js/javaFindU.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
         <link rel="stylesheet" href="../css/buscarUsua.css">
     </head>
