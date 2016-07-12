@@ -155,7 +155,7 @@ input[type="search"]:focus {
 
 .listaCoin {
     position: relative;
-    width: 250px;
+    width: 500px;
     text-align: left;
     top: 0;
     left: 0;
@@ -163,5 +163,10 @@ input[type="search"]:focus {
     padding: 0;
     font-family: 'Roboto-Regular';
     font-size: 24px;
+    color: #E53935;
+}
+
+.nombre {
+    font-family: 'Roboto-Regular';
     color: #09556C;
 }

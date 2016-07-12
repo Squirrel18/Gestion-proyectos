@@ -16,7 +16,7 @@
             die("Connection failed: " . $conexion->connect_error);
         } 
 
-        if($stmt = $conexion->prepare("SELECT numero, nombre, id FROM login WHERE estado='1' AND numero LIKE ?")) {
+        if($stmt = $conexion->prepare("SELECT numero, nombre, id, rol FROM login WHERE estado='1' AND numero LIKE ?")) {
             $stmt->bind_param("s", $numero);
             $stmt->execute();
             $resultado = $stmt->get_result();

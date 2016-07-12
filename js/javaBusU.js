@@ -32,11 +32,16 @@ function busUsuario() {
 
 function datosCoinci(dato) {
     var conten = document.getElementById("contenCoin");
+    $("#contenCoin").empty();
+    
     for(var i = 0; i < dato.length; i++) {
-        var coinci = document.createElement("p");
-        coinci.classList.add("listaCoin");
-        coinci.innerText = dato[i].nombre;
-        conten.appendChild(coinci);
+        if(!document.getElementById("lista" + dato[i].id)) {
+            var coinci = document.createElement("p");
+            coinci.id = "lista" + dato[i].id;
+            coinci.classList.add("listaCoin");
+            coinci.innerHTML = "<span class='nombre'>" + dato[i].nombre + ".</span> " + dato[i].rol;
+            conten.appendChild(coinci);
+        }
     }
 }
 
