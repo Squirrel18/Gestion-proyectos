@@ -168,20 +168,28 @@ input:-webkit-autofill {
 
 input::-webkit-input-placeholder {
     color: #09556C;
+    opacity: 0.6;
     font-family: 'Roboto-Regular';
     font-size: 18px;
 }
 
 input::-moz-placeholder {
     color: #09556C;
+    opacity: 0.6;
     font-family: 'Roboto-Regular';
     font-size: 18px;
+}
+
+#nombre {
+    position: absolute;
+    border-bottom: solid #09556C 1px;
+    top: 23%;
 }
 
 #contrasena {
     position: absolute;
     border-bottom: solid #09556C 1px;
-    top: 30%;
+    top: 34%;
 }
 
 #lista {
@@ -197,7 +205,7 @@ input::-moz-placeholder {
     width: 500px;
     height: 40px;
     border-bottom: solid #09556C 1px;
-    top: 42%;
+    top: 45%;
     left: 14.5%;
 }
 
@@ -207,7 +215,7 @@ input::-moz-placeholder {
 
 #textPermiso {
     position: absolute;
-    top: 55%;
+    top: 57%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 20px;
@@ -218,7 +226,7 @@ input::-moz-placeholder {
     position: absolute;
     width: 300px;
     height: 145px;
-    top: 60%;
+    top: 64%;
     left: 14.5%;
     overflow: auto;
 }
@@ -243,7 +251,7 @@ input::-moz-placeholder {
 
 #submitNUser {
     position: absolute;
-    top: 85%;
+    top: 87%;
     left: 71%;
     color: #14A4D9;
     width: 100px;
@@ -276,7 +284,7 @@ input::-moz-placeholder {
     width: 230px;
     height: 50px;
     color: #FFF;
-    top: 85%;
+    top: 87%;
     left: 14.5%;
     background: #D32F2F;
     border-radius: 2px;
@@ -296,4 +304,18 @@ input::-moz-placeholder {
     background: #E5E5E5;
     box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
     color: #D32F2F;
+}
+
+.errorVacio {
+    position: absolute;
+    top: 30%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
 }

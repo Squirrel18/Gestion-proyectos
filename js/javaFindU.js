@@ -12,7 +12,6 @@ function busUsuario() {
         $("#contenCoin").empty();
     } else if(buscar.value != "") {
         if(patt.test(buscar.value) || patt1.test(buscar.value)) {
-            console.log("caracteres no admitidos");
             eliminarError("card");
             if(!document.getElementById("textoError")) {
                 buscar.style.borderColor = "#B71C1C";
@@ -39,7 +38,6 @@ function busUsuario() {
 }
 
 function datosCoinci(dato) {
-    console.log("está realizando la consulta");
     var conten = document.getElementById("contenCoin");
     $("#contenCoin").empty();
     if(dato.length == 0) {
@@ -55,6 +53,7 @@ function datosCoinci(dato) {
             coinci.classList.add("listaCoin");
             link.classList.add("linkCoinci");
             link.setAttribute("href", "../pages/editUsua.php?numero=" + dato[i].numero);
+            link.setAttribute("target", "_blank");
             conten.appendChild(link);
             coinci.innerHTML = "<span class='nombre'>" + dato[i].nombre + ".</span> " + dato[i].rol;
             link.appendChild(coinci);

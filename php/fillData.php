@@ -1,22 +1,20 @@
 <?php
     require 'verifData.php';
-    $usuario = verifDatos($_POST["usuario"]);
-    $usuario = "%".$usuario."%";
-    //$usuario = "%1069755449%";
+    $usuario = verifDatos($_POST["num"]);
 
     if(isset($usuario)) {
-        buscarUser($usuario);
+        datos($usuario);
     } else {
         echo "error";
     }
 
-    function buscarUser($numero) {
+    function datos($numero) {
         require 'conexion.php';
         if($conexion->connect_error) {
             die("Connection failed: " . $conexion->connect_error);
         } 
 
-        if($stmt = $conexion->prepare("SELECT numero, nombre, rol FROM login WHERE estado='1' AND numero LIKE ?")) {
+        if($stmt = $conexion->prepare("SELECT id, numero, nombre, contrasena, rol FROM login WHERE estado='1' AND numero=?")) {
             $stmt->bind_param("s", $numero);
             $stmt->execute();
             $resultado = $stmt->get_result();
@@ -32,5 +30,4 @@
         }
         $conexion->close();
     }
-    
 ?>

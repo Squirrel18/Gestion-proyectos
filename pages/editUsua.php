@@ -20,8 +20,9 @@
         <div id="card">
             <i class="material-icons md-48" id="fontEdit">create</i>
             <p id="textEdit">Editar usuario</p>
-            <form>
-                <input type="text" name="pass" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+            <form onsubmit="return validar()" method="POST" action="">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off">
+                <input type="text" name="pass" id="contrasena" placeholder="Contraseña" autocomplete="off">
                 <input id="lista" list="Rol" name="rol" placeholder="Rol" autocomplete="off">
                 <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>

@@ -1,22 +1,20 @@
 <?php
     require 'verifData.php';
-    $usuario = verifDatos($_POST["usuario"]);
-    $usuario = "%".$usuario."%";
-    //$usuario = "%1069755449%";
+    $usuarioId = verifDatos($_POST["id"]);
 
-    if(isset($usuario)) {
-        buscarUser($usuario);
+    if(isset($usuarioId)) {
+        buscarPermisos($usuarioId);
     } else {
         echo "error";
     }
 
-    function buscarUser($numero) {
+    function buscarPermisos($numero) {
         require 'conexion.php';
         if($conexion->connect_error) {
             die("Connection failed: " . $conexion->connect_error);
         } 
 
-        if($stmt = $conexion->prepare("SELECT numero, nombre, rol FROM login WHERE estado='1' AND numero LIKE ?")) {
+        if($stmt = $conexion->prepare("SELECT idPermiso FROM usupermisos WHERE idUsuario=?")) {
             $stmt->bind_param("s", $numero);
             $stmt->execute();
             $resultado = $stmt->get_result();
