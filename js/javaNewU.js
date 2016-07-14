@@ -105,7 +105,6 @@ function validForm() {
         }
     }
 
-
     if(validChecked == true) {
         return true;
     } else {

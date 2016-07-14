@@ -21,9 +21,9 @@
             <i class="material-icons md-48" id="fontEdit">create</i>
             <p id="textEdit">Editar usuario</p>
             <form onsubmit="return validar()" method="POST" action="">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off">
-                <input type="text" name="pass" id="contrasena" placeholder="Contraseña" autocomplete="off">
-                <input id="lista" list="Rol" name="rol" placeholder="Rol" autocomplete="off">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required autocomplete="off">
+                <input type="text" name="pass" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+                <input id="lista" list="Rol" name="rol" placeholder="Rol" required autocomplete="off">
                 <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>
                 <div id="permisos"></div>

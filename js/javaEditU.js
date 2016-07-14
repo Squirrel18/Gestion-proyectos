@@ -19,6 +19,29 @@ $(document).ready(function() {
     verificaURL();
 });
 
+function promesa() {
+    return new Promise(function(exito, error) {
+        $.ajax({
+            url: "../php/rol.php",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(datos) {
+                if(datos.length > 0) {
+                    exito(datos);
+                } else {
+                    error("ocurrio un error");
+                }
+            }
+        });
+    });
+}
+
+promesa().then(function(exitoRes) {
+    alert(exitoRes);
+}, function(errorRes) {
+    alert(errorRes);
+});
+
 function genPermisos(dato) {
     var contenPer = document.getElementById("permisos");
     for(var i = 0; i < dato.length; i++) {
@@ -152,24 +175,78 @@ function rellenaDatos(datos, permisos) {
 }
 
 function validar() {
+    var comprobacion = false;
     var nombre = document.getElementById("nombre");
     nombre.addEventListener("focus", function() {
         nombre.style.borderColor= "#09556C";
         eliminarError("card");
     });
     var key = document.getElementById("contrasena");
+    key.addEventListener("focus", function() {
+        key.style.borderColor= "#09556C";
+        eliminarError("card");
+    });
     var rol = document.getElementById("lista");
+    rol.addEventListener("focus", function() {
+        rol.style.borderColor= "#09556C";
+        eliminarError("card");
+    });
     var contenedor = document.getElementById("permisos").childNodes;
-    
-    if(nombre.value == "") {
-        crearError("El campo está vacío", "errorVacio", "card");
+
+    if(patt1.test(nombre.value) || patt2.test(nombre.value) || patt3.test(nombre.value)) {
+        crearError("Únicamente caracteres alfabéticos", "errorNombre", "card");
         nombre.style.borderColor = "#B71C1C";
         return false;
-    } else {
-        if(patt1.test(nombre.value) || patt2.test(nombre.value) || patt3.test(nombre.value)) {
-            crearError("Únicamente caracteres alfabéticos", "errorVacio", "card");
-            nombre.style.borderColor = "#B71C1C";
-            return false;
-        }
     }
+
+    if(patt1.test(key.value) || patt3.test(key.value)) {
+        crearError("Sin espacios y caracteres especiales", "errorPass", "card");
+        key.style.borderColor = "#B71C1C";
+        return false;
+    }
+
+    /*var prueba = function(callback) {
+        $.ajax({
+            url: "../php/rol.php",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(datos) {
+                callback(datos);
+            }
+        });
+    }
+    var a;
+    prueba(function(datos) {
+        return a = datos;
+    });
+    alert(a);*/
+
+    //console.log(verificaRol());
+
+    /*if(verificaRol()) {
+        for(var i = 0; i < contenedor.length; i++) {
+            if(i % 2 == 0) {
+                if(!contenedor[i].checked) {
+                    eliminarError("card");
+                    crearError("Requiere una selección", "errorCheck", "card");
+                    validChecked = false;
+                    break;
+                } else {
+                    validChecked = true;
+                }
+            }
+        }
+    } else {
+        rol.style.borderColor = "#B71C1C";
+        crearError("Valor no valido", "errorRol", "card");
+        return false;
+    }
+
+    if(validChecked) {
+        return true;
+    } else {
+        return false;
+    }*/
+
+    return false;
 }

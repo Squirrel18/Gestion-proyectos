@@ -306,9 +306,51 @@ input::-moz-placeholder {
     color: #D32F2F;
 }
 
-.errorVacio {
+.errorNombre {
     position: absolute;
     top: 30%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorPass {
+    position: absolute;
+    top: 41%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorRol {
+    position: absolute;
+    top: 52%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorCheck {
+    position: absolute;
+    top: 61%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 16px;
