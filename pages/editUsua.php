@@ -20,16 +20,16 @@
         <div id="card">
             <i class="material-icons md-48" id="fontEdit">create</i>
             <p id="textEdit">Editar usuario</p>
-            <form onsubmit="return validar()" method="POST" action="">
+            <form id="formularioEdit" onsubmit="return validar()" method="POST" action="../php/editUser.php">
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre" required autocomplete="off">
                 <input type="text" name="pass" id="contrasena" placeholder="Contraseña" required autocomplete="off">
                 <input id="lista" list="Rol" name="rol" placeholder="Rol" required autocomplete="off">
                 <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>
                 <div id="permisos"></div>
-                <input type="button" id="elimUser" value="Eliminar usuario">
                 <input id="submitNUser" type="submit" value="Listo">
             </form>
+            <input type="button" id="elimUser" value="Eliminar usuario" onclick="elimUser()">
         </div>
         <img id="logo" src="../assets/logo.png">
         <p id="texto"></p>

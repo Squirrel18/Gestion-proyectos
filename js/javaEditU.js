@@ -1,23 +1,4 @@
-$(document).ready(function() {
-    $.ajax({
-        url: "../php/permit.php",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function(datos) {
-            genPermisos(datos);
-        }
-    });
-
-    $.ajax({
-        url: "../php/rol.php",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function(datos) {
-            genRol(datos);
-        }
-    });
-    verificaURL();
-});
+var contenedorJson = new Array();
 
 function promesa() {
     return new Promise(function(exito, error) {
@@ -37,9 +18,32 @@ function promesa() {
 }
 
 promesa().then(function(exitoRes) {
-    alert(exitoRes);
+    for(var i = 0; i < exitoRes.length; i++) {
+        contenedorJson[i] = exitoRes[i].rol;
+    }
 }, function(errorRes) {
     alert(errorRes);
+});
+
+$(document).ready(function() {
+    $.ajax({
+        url: "../php/permit.php",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(datos) {
+            genPermisos(datos);
+        }
+    });
+
+    $.ajax({
+        url: "../php/rol.php",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(datos) {
+            genRol(datos);
+        }
+    });
+    verificaURL();
 });
 
 function genPermisos(dato) {
@@ -140,7 +144,6 @@ function traerDatos(dato) {
                 alert("Ocurrio un error");
                 window.location.assign("../pages/buscarUsua.php");
             } else {
-                console.log(datos[0].rol);
                 traerPermisos(datos);
             }
         }
@@ -172,10 +175,20 @@ function rellenaDatos(datos, permisos) {
     for(var i = 0; i < permisos.length; i++) {
         document.getElementById("dato" + permisos[i].idPermiso).checked = true;
     }
+    var numero = document.createElement("input");
+    numero.name = "numero";
+    numero.type = "text"
+    numero.id = "hiddenText";
+    numero.value = datos[0].numero;
+    numero.style.display = "none";
+    document.getElementById("formularioEdit").appendChild(numero);
 }
 
 function validar() {
-    var comprobacion = false;
+
+    var comprobCheck;
+    var comprobRol;
+
     var nombre = document.getElementById("nombre");
     nombre.addEventListener("focus", function() {
         nombre.style.borderColor= "#09556C";
@@ -193,7 +206,7 @@ function validar() {
     });
     var contenedor = document.getElementById("permisos").childNodes;
 
-    if(patt1.test(nombre.value) || patt2.test(nombre.value) || patt3.test(nombre.value)) {
+    if(patt2.test(nombre.value) || patt3.test(nombre.value)) {
         crearError("Únicamente caracteres alfabéticos", "errorNombre", "card");
         nombre.style.borderColor = "#B71C1C";
         return false;
@@ -205,48 +218,52 @@ function validar() {
         return false;
     }
 
-    /*var prueba = function(callback) {
-        $.ajax({
-            url: "../php/rol.php",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function(datos) {
-                callback(datos);
-            }
-        });
+    for(var i = 0; i < contenedorJson.length; i++) {
+        if(rol.value == contenedorJson[i].toString()) {
+            eliminarError("card");
+            comprobRol = true;
+            break;
+        } else {
+            crearError("Dato no valido", "errorRol", "card");
+            rol.style.borderColor = "#B71C1C";
+            comprobRol = false;
+        }
     }
-    var a;
-    prueba(function(datos) {
-        return a = datos;
-    });
-    alert(a);*/
 
-    //console.log(verificaRol());
-
-    /*if(verificaRol()) {
-        for(var i = 0; i < contenedor.length; i++) {
-            if(i % 2 == 0) {
-                if(!contenedor[i].checked) {
-                    eliminarError("card");
-                    crearError("Requiere una selección", "errorCheck", "card");
-                    validChecked = false;
-                    break;
-                } else {
-                    validChecked = true;
-                }
+    for(var i = 0; i < contenedor.length; i++) {
+        if(i % 2 == 0) {
+            if(contenedor[i].checked) {
+                eliminarError("card");
+                comprobCheck = true;
+                break;
+            } else {
+                crearError("Requiere una selección", "errorCheck", "card");
+                comprobCheck = false;
             }
         }
-    } else {
-        rol.style.borderColor = "#B71C1C";
-        crearError("Valor no valido", "errorRol", "card");
-        return false;
     }
 
-    if(validChecked) {
+    if(comprobRol && comprobCheck) {
         return true;
     } else {
         return false;
-    }*/
+    }
+}
 
-    return false;
+function elimUser() {
+    var valor = document.getElementById("hiddenText");
+    var parametros = {numero: valor.value};
+    $.ajax({
+        method: "POST",
+        url: "../php/deleteUser.php",
+        data: parametros,
+        dataType: "text", 
+        success: function(datos) {
+            if(datos === "true") {
+                alert("el usuario se elimino");
+            } else {
+                alert("ocurrio un problema al eliminar");
+            }
+        }
+    });
 }

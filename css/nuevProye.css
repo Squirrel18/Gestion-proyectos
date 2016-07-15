@@ -1,0 +1,169 @@
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+body {
+    height: 100%;
+    font-family: 'Roboto-Medium';
+    background: #14A4D9;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#fontAccount {
+    font-size: 108px;
+    position: absolute; 
+    top: 2%;
+    left: 91%;
+    color: #FFF;
+}
+
+#textUser {
+    position: absolute;
+    width: 550px;
+    height: 30px;
+    font-family: 'Roboto-light';
+    font-size: 28px;
+    top: 4.5%;
+    left: 56%;
+    text-align: right;
+}
+
+#textRol {
+    position: absolute;
+    width: 300px;
+    height: 30px;
+    font-family: 'Roboto-Light';
+    font-size: 24px;
+    top: 9.5%;
+    left: 71.6%;
+    text-align: right;
+}
+
+#card {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    top: 7%;
+    left: 8%;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+    position: absolute;
+    top: 30%;
+    left: 63%;
+}
+
+#fontNewFolder {
+    font-size: 96px;
+    position: absolute; 
+    top: 2%;
+    left: 43%;
+    color: #09556C;
+}
+
+#textNewP  {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 700px;
+    height: 40px;
+    font-family: 'Roboto-Regular';
+    font-size: 30px;
+    color: #09556C;
+    text-align: center;
+    top: 15%;
+    left: 0;
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto-light';
+    font-size: 22px;
+    background: rgba(0, 0, 0, 0);
+    width: 500px;
+    height: 40px;
+    left: 14.5%;
+}
+
+input[type="text"]:focus {
+    outline: 0px;
+}
+
+#nomProyec {
+    position: absolute;
+    border-bottom: solid #09556C 1px;
+    top: 25%;
+}
+
+#numProyec {
+    position: absolute;
+    border-bottom: solid #09556C 1px;
+    top: 37%;
+}
+
+#textDescri {
+    position: absolute;
+    top: 50%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 20px;
+    color: #09556C;
+}
+
+#textDesc {
+    position: absolute;
+    width: 495px;
+    height: 120px;
+    top: 55%;
+    left: 14.5%;
+    /*border: solid #09556C 1px;*/
+    border: none;
+    font-family: 'Roboto-light';
+    font-size: 22px;
+}
+
+#textDesc:focus {
+    outline: 0px;
+}
