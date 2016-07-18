@@ -9,7 +9,7 @@
     }
     
     if(isset($usuario) || isset($pass)) {
-        comprobarLogin($usuario,$pass);
+        comprobarusuario($usuario,$pass);
     } else {
         header('Location: ../index.php?error=0');
     }
@@ -18,11 +18,11 @@
         $conexi->close();
     }
 
-    function comprobarLogin($usu, $passVal) {
+    function comprobarusuario($usu, $passVal) {
 
         $con = conectar();
 
-        if($stmt = $con->prepare("SELECT numero FROM login WHERE estado='1' AND numero=? AND contrasena=?")) {
+        if($stmt = $con->prepare("SELECT numero FROM usuarios WHERE estado='1' AND numero=? AND contrasena=?")) {
             $stmt->bind_param("ss", $usu, $passVal);
             $stmt->execute();
             //$stmt->bind_result($resultado);
@@ -36,7 +36,7 @@
             $stmt->close();
         }
 
-        /*$sql = "SELECT usuario FROM login WHERE estado='1' AND usuario='".$usu."' AND contrasena='".$passVal."'";
+        /*$sql = "SELECT usuario FROM usuario WHERE estado='1' AND usuario='".$usu."' AND contrasena='".$passVal."'";
         $result = $con->query($sql);
 
         if($result->num_rows > 0) {
@@ -69,7 +69,7 @@
     $estado = "1";
     $nombre = "1069755449";
 
-    $sql = "SELECT usuario, contrasena FROM login WHERE login.estado='1'";
+    $sql = "SELECT usuario, contrasena FROM usuario WHERE usuario.estado='1'";
     $result = $conexion->query($sql);
 
     if ($result->num_rows > 0) {
@@ -83,7 +83,7 @@
         }*/
     //}
 
-    /*if($stmt = $conexion->prepare("SELECT usuario, contrasena FROM login WHERE estado=? AND usuario=?")) {
+    /*if($stmt = $conexion->prepare("SELECT usuario, contrasena FROM usuario WHERE estado=? AND usuario=?")) {
         $stmt->bind_param("ss", $estado, $nombre);
         $stmt->execute();
         $stmt->bind_result($user, $passValue);

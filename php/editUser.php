@@ -41,7 +41,7 @@
             die("no selecciono el conjunto de caracteres");
         }
 
-        if($stmt = $conexion->prepare("UPDATE login SET nombre=?, contrasena=?, rol=? WHERE numero=?")) {
+        if($stmt = $conexion->prepare("UPDATE usuarios SET nombre=?, contrasena=?, rol=? WHERE numero=?")) {
             $stmt->bind_param("ssss", $nom, $pass, $rol, $num);
             $stmt->execute();
             $stmt->close();
@@ -49,7 +49,7 @@
             $realizado = false;
         }
 
-        if($stmt = $conexion->prepare("SELECT id FROM login WHERE estado='1' AND numero=?")) {
+        if($stmt = $conexion->prepare("SELECT id FROM usuarios WHERE estado='1' AND numero=?")) {
             $stmt->bind_param("s", $num);
             $stmt->execute();
             $stmt->bind_result($resultado);

@@ -15,7 +15,7 @@
     function comprobarUser($usu) {
 
         $con = conectar();
-        if($stmt = $con->prepare("SELECT numero FROM login WHERE estado='1' AND numero=?")) {
+        if($stmt = $con->prepare("SELECT numero FROM usuarios WHERE estado='1' AND numero=?")) {
             $stmt->bind_param("s", $usu);
             $stmt->execute();
             //$stmt->bind_result($resultado);

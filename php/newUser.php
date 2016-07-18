@@ -42,7 +42,7 @@
             die("no selecciono el conjunto de caracteres");
         }
 
-        if($stmt = $conexion->prepare("INSERT INTO login(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
+        if($stmt = $conexion->prepare("INSERT INTO usuarios(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
             $stmt->bind_param("sssss", $nom, $num, $pass, $rol, $esta);
             $stmt->execute();
             $ultimoId = $conexion->insert_id;

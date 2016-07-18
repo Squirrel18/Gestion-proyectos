@@ -16,7 +16,7 @@
             die("Connection failed: " . $conexion->connect_error);
         } 
         
-        if($stmt = $conexion->prepare("UPDATE login SET estado=? WHERE numero=?")) {
+        if($stmt = $conexion->prepare("UPDATE usuarios SET estado=? WHERE numero=?")) {
             $stmt->bind_param("ss", $estado, $num);
             $stmt->execute();
             $stmt->close();
@@ -24,7 +24,7 @@
             echo "Error al eliminar";
         }
 
-        if($stmt = $conexion->prepare("SELECT estado FROM login WHERE numero=?")) {
+        if($stmt = $conexion->prepare("SELECT estado FROM usuarios WHERE numero=?")) {
             $stmt->bind_param("s", $num);
             $stmt->execute();
             $stmt->bind_result($resultado);
