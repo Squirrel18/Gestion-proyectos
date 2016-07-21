@@ -14,17 +14,22 @@
         <link rel="stylesheet" href="../css/nuevProye.css">
     </head>
     <body>
-        <i class="material-icons md-48" id="fontAccount">account_circle</i>
-        <p id="textUser">Nombre de usuario</p>
-        <p id="textRol">Sistemas</p>
+        <div id="account">
+            <i class="material-icons md-48" id="fontAccount">account_circle</i>
+            <p id="textUser">Nombre de usuario</p>
+            <p id="textRol">Sistemas</p>
+        </div>
         <div id="card">
             <i class="material-icons md-48" id="fontNewFolder">create_new_folder</i>
             <p id="textNewP">Nuevo proyecto</p>
-            <form id="formularioEdit" onsubmit="return validar()" method="POST" action="../php/editUser.php">
-                <input id="nomProyec" type="text" placeholder="Nombre del proyecto">
+            <form id="formNewPro" onsubmit="return validNProy()" method="POST" action="../php/newPro.php">
+                <input id="nomProyec" type="text" name="nombre" placeholder="Nombre del proyecto" required autocomplete="off">
+                <input id="numProyec" type="text" name="numero" placeholder="Número solicitud" required autocomplete="off">
                 <p id="textDescri">Descripción</p>
-                <input id="numProyec" type="text" placeholder="Número solicitud">
-                <textarea id="textDesc"></textarea>
+                <textarea id="textDesc" maxlength="200" name="descripcion" placeholder="Descripción del proyecto, máximo 200 caracteres."></textarea>
+                <p id="textCarpetas">Carpetas</p>
+                <div id="carpetas"></div>
+                <input id="submitNProy" type="submit" value="Listo">
             </form>
         </div>
         <img id="logo" src="../assets/logo.png">

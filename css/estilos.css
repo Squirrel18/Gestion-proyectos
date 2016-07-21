@@ -52,25 +52,32 @@ p {
 }
 
 #card {
-    position: absolute;
+    position: relative;
     width: 500px;
     height: 550px;
     background: #FFF;
-    margin: 0;
+    margin: auto;
     padding: 0;
     border-radius: 7px;
-    top: 22%;
-    left: 34.5%;
+    top: 130px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
 }
 
 #fontAccount {
     font-size: 96px;
-    position: absolute; 
-    top: 4%;
-    left: 41%;
+    position: relative; 
+    top: 20px;
     color: #09556C;
+    width: inherit;
+}
+
+#signIn {
+    position: relative;
+    width: inherit;
+    height: 75%;
+    display: block;
 }
 
 input[type="text"], input[type="password"], input[type="submit"] {
@@ -96,17 +103,17 @@ input:-webkit-autofill {
 
 #usuario {
     border-bottom: solid #09556C 1px;
-    position: absolute;
+    position: relative;
     width: 300px;
     height: 40px;
-    top: 34%;
-    left: 20%;
+    top: 70px;
+    margin: auto;
 }
 
 #pUsuario {
     font-family: 'Roboto-light';
     position: relative;
-    top: 25%;
+    top: 10%;
     font-size: 26px;
     color: #09556C;
 }
@@ -114,27 +121,24 @@ input:-webkit-autofill {
 #pContrasena {
     font-family: 'Roboto-light';
     position: relative;
-    top: 49%;
+    top: 20%;
     font-size: 26px;
     color: #09556C;
 }
 
 #contrasena {
     border-bottom: solid #09556C 1px;
-    position: absolute;
+    position: relative;
     width: 300px;
     height: 40px;
-    top: 64%;
-    left: 20%;
+    top: 185px;
+    margin: auto;
 }
 
 #bIngresa {
-    position: absolute;
-    left: 38%;
-    top: 82%;
+    position: relative;
+    top: 190px;
     background: rgba(255, 255, 255, 1);
-    color: #09556C;
-    font-family: 'Roboto-Regular';
     font-size: 24px;
     width: 120px;
     height: 60px;
@@ -144,6 +148,7 @@ input:-webkit-autofill {
                      border 0.5s ease-in-out;
     transition: box-shadow 0.2s ease-in-out,
                 border 0.5s ease-in-out;
+    margin: auto;
 }
 
 #bIngresa:hover {
@@ -206,14 +211,13 @@ input:-webkit-autofill {
 }
 
 #divDisabled {
-    position: absolute;
-    margin: 0;
+    position: relative;
+    margin: auto;
     padding: 0;
     width: 320px;
     height: 250px;
     background: rgba(255, 255, 255, 0.6);
-    top: 52%;
-    left: 18%;
+    top: -220px;
 }
 
 .error {
@@ -233,3 +237,14 @@ input:-webkit-autofill {
     left: 30%;
     color: #B71C1C;
 }
+
+/*Inicio media queries*/
+
+@media screen and (max-width: 700px) {
+    
+    #card  {
+        width: 400px;
+    }
+}
+
+/*Fin media queries*/

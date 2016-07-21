@@ -41,34 +41,34 @@ p {
     padding: 0;
 }
 
+#account {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 100px;
+}
+
 #fontAccount {
+    position: relative; 
     font-size: 108px;
-    position: absolute; 
-    top: 2%;
-    left: 91%;
+    left: -20px;
     color: #FFF;
 }
 
 #textUser {
-    position: absolute;
-    width: 550px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-light';
     font-size: 28px;
-    top: 4.5%;
-    left: 56%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #textRol {
-    position: absolute;
-    width: 300px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-Light';
     font-size: 24px;
-    top: 9.5%;
-    left: 71.6%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #card {
@@ -83,23 +83,24 @@ p {
     border-radius: 7px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
 }
 
 #fontFind {
     font-size: 96px;
-    position: absolute; 
-    top: 2%;
-    left: 43.5%;
+    position: relative; 
+    top: 10px;
     color: #09556C;
+    margin: auto;
 }
 
 #textFind {
-    position: absolute;
+    position: relative;
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
-    top: 15%;
-    left: 35.5%;
+    top: 1%;
+    margin: auto;
 }
 
 #logo {
@@ -119,7 +120,6 @@ input[type="search"] {
     background: rgba(0, 0, 0, 0);
     width: 500px;
     height: 50px;
-    left: 14.5%;
 }
 
 input[type="search"]:focus {
@@ -127,10 +127,10 @@ input[type="search"]:focus {
 }
 
 #buscar {
-    position: absolute;
-    top: 25%;
-    left: 14.5%;
+    position: relative;
+    top: 50px;
     border-bottom: solid 1px #09556C;
+    margin: auto;
 }
 
 .textErrorLetras {
@@ -148,17 +148,17 @@ a {
 }
 
 #contenCoin {
-    position: absolute;
-    top: 42%;
-    left: 14.5%;
+    position: relative;
+    top: 15%;
     padding: 0;
-    margin: 0;
+    margin: auto;
     width: 500px;
-    height: 250px;
+    height: 350px;
+    overflow: auto;
 }
 
 .listaCoin {
-    width: 500px;
+    width: 300px;
     height: 30px;
     text-align: left;
     top: 0;
@@ -185,3 +185,101 @@ a {
     /*border: solid 1px #09556C;
     border-radius: 2px;*/
 }
+
+/*Inicio media queries*/
+
+@media screen and (max-width: 1350px) {
+    
+    #logo {
+        display: none;
+    }
+
+    #card {
+        position: relative;
+        margin: auto auto 50px auto;
+        left: 0;
+        top: 50px;
+    }
+
+    #account {
+        width: 700px;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    
+    #card {
+        width: 600px;
+    }
+
+    input[type="search"] {
+        width: 450px;
+    }
+
+    #account {
+        width: 600px;
+    }
+
+    #contenCoin {
+        width: 450px;
+    }
+
+    .listaCoin {
+        width: 400px;
+    }
+
+}
+
+@media screen and (max-width: 668px) {
+    
+    #card {
+        width: 500px;
+    }
+
+    input[type="search"] {
+        width: 350px;
+    }
+
+    #account {
+        width: 500px;
+    }
+
+    #contenCoin {
+        width: 350px;
+    }
+
+    .listaCoin {
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    
+    #card {
+        width: 400px;
+        height: 800px;
+    }
+
+    input[type="search"] {
+        width: 300px;
+    }
+
+    #account {
+        width: 400px;
+    }
+
+    #contenCoin {
+        width: 300px;
+        height: 450px;
+    }
+
+    .listaCoin {
+        width: 300px;
+    }
+
+}
+
+/*Fin media queries*/

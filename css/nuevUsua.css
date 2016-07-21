@@ -41,34 +41,34 @@ p {
     padding: 0;
 }
 
+#account {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 100px;
+}
+
 #fontAccount {
+    position: relative; 
     font-size: 108px;
-    position: absolute; 
-    top: 2%;
-    left: 91%;
+    left: -20px;
     color: #FFF;
 }
 
 #textUser {
-    position: absolute;
-    width: 550px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-light';
     font-size: 28px;
-    top: 4.5%;
-    left: 56%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #textRol {
-    position: absolute;
-    width: 300px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-Light';
     font-size: 24px;
-    top: 9.5%;
-    left: 71.6%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #card {
@@ -83,6 +83,7 @@ p {
     border-radius: 7px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
 }
 
 #logo {
@@ -93,19 +94,26 @@ p {
 
 #fontNewFolder {
     font-size: 96px;
-    position: absolute; 
-    top: 2%;
-    left: 41.5%;
+    position: relative; 
+    top: 10px;
     color: #09556C;
+    margin: auto;
 }
 
 #textNewUser {
-    position: absolute;
+    position: relative;
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
-    top: 15%;
-    left: 34.5%;
+    top: 1%;
+    margin: auto;
+}
+
+#formNewUser {
+    position: relative;
+    width: inherit;
+    height: 80%;
+    display: block;
 }
 
 input[type="text"], input[type="number"] {
@@ -119,7 +127,6 @@ input[type="text"], input[type="number"] {
     background: rgba(0, 0, 0, 0);
     width: 500px;
     height: 40px;
-    left: 14.5%;
     /*background: darkred;*/
 }
 
@@ -195,21 +202,24 @@ input::-moz-placeholder {
 }
 
 #nombre {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 25%;
+    top: 6%;
+    margin: auto;
 }
 
 #numero {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 35%;
+    top: 12%;
+    margin: auto;
 }
 
 #contrasena {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 45%;
+    top: 18%;
+    margin: auto;
 }
 
 #lista {
@@ -221,12 +231,12 @@ input::-moz-placeholder {
     font-family: 'Roboto-Light';
     font-size: 24px;
     background: rgba(0, 0, 0, 0);
-    position: absolute;
+    position: relative;
     width: 500px;
     height: 40px;
     border-bottom: solid #09556C 1px;
-    top: 55%;
-    left: 14.5%;
+    top: 24%;
+    margin: auto;
 }
 
 #lista:focus {
@@ -235,7 +245,7 @@ input::-moz-placeholder {
 
 #textPermiso {
     position: absolute;
-    top: 67%;
+    top: 59%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 20px;
@@ -262,7 +272,7 @@ input::-moz-placeholder {
 
 #submitNUser {
     position: absolute;
-    top: 85%;
+    top: 82%;
     left: 71%;
     color: #14A4D9;
     width: 100px;
@@ -292,62 +302,177 @@ input::-moz-placeholder {
     position: absolute;
     width: 300px;
     height: 145px;
-    top: 74%;
+    top: 66%;
     left: 14.5%;
     overflow: auto;
 }
- .errorNombre {
-     position: absolute;
-     top: 31.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
 
- .errorRol {
-     position: absolute;
-     top: 61.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
+.errorNombre {
+    position: absolute;
+    top: 31.5%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 200px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
 
- .errorPass {
-     position: absolute;
-     top: 51.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 250px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
+.errorRol {
+    position: absolute;
+    top: 63%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 200px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
 
- .errorCheck {
-     position: absolute;
-     top: 94.5%;
-     left: 14.5%;
-     font-family: 'Roboto-Regular';
-     font-size: 16px;
-     width: 200px;
-     height: 20px;
-     padding: 0;
-     margin: 0;
-     color: #B71C1C;
-     text-align: left;
- }
+.errorPass {
+    position: absolute;
+    top: 52.5%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 250px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorCheck {
+    position: absolute;
+    top: 93%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 200px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+/*Inicio media queries*/
+
+@media screen and (max-width: 1350px) {
+    
+    #logo {
+        display: none;
+    }
+
+    #card {
+        position: relative;
+        margin: auto auto 50px auto;
+        left: 0;
+        top: 50px;
+    }
+
+    #account {
+        width: 700px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    #card {
+        width: 600px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 450px;
+    }
+
+    #lista {
+        width: 450px;
+    }
+
+    #account {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    
+    #card {
+        width: 500px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 350px;
+    }
+
+    #lista {
+        width: 350px;
+    }
+
+    #account {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    
+    #card {
+        width: 400px;
+        height: 800px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 300px;
+    }
+
+    #lista {
+        width: 300px;
+    }
+
+    #submitNUser {
+        top: 92%;
+        left: 38%;
+    }
+
+    .errorNombre {
+        top: 28.5%;
+        left: 12.5%;
+    }
+
+    .errorRol {
+        top: 58%;
+        left: 12.5%;
+    }
+
+    .errorPass {
+        top: 48.5%;
+        left: 12.5%;
+    }
+
+    .errorCheck {
+        top: 93%;
+        left: 14.5%;
+    }
+
+    #textPermiso {
+        left: 12.5%;
+    }
+
+    #permisos {
+        left: 12.5%;
+    }
+
+    #account {
+        width: 400px;
+    }
+}
+
+/*Fin media queries*/

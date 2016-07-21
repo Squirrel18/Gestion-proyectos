@@ -205,6 +205,7 @@ function validar() {
         eliminarError("card");
     });
     var contenedor = document.getElementById("permisos").childNodes;
+    console.log(contenedor);
 
     if(patt2.test(nombre.value) || patt3.test(nombre.value)) {
         crearError("Únicamente caracteres alfabéticos", "errorNombre", "card");
@@ -221,6 +222,7 @@ function validar() {
     for(var i = 0; i < contenedorJson.length; i++) {
         if(rol.value == contenedorJson[i].toString()) {
             eliminarError("card");
+            rol.style.borderColor = "#09556C";
             comprobRol = true;
             break;
         } else {

@@ -41,34 +41,34 @@ p {
     padding: 0;
 }
 
+#account {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 100px;
+}
+
 #fontAccount {
+    position: relative; 
     font-size: 108px;
-    position: absolute; 
-    top: 2%;
-    left: 91%;
+    left: -20px;
     color: #FFF;
 }
 
 #textUser {
-    position: absolute;
-    width: 550px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-light';
     font-size: 28px;
-    top: 4.5%;
-    left: 56%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #textRol {
-    position: absolute;
-    width: 300px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-Light';
     font-size: 24px;
-    top: 9.5%;
-    left: 71.6%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #card {
@@ -83,6 +83,7 @@ p {
     border-radius: 7px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
 }
 
 #logo {
@@ -93,19 +94,26 @@ p {
 
 #fontEdit {
     font-size: 96px;
-    position: absolute; 
-    top: 2%;
-    left: 43.5%;
+    position: relative; 
+    top: 10px;
     color: #09556C;
+    margin: auto;
 }
 
 #textEdit {
-    position: absolute;
+    position: relative;
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
-    top: 15%;
-    left: 37%;
+    top: 1%;
+    margin: auto;
+}
+
+#formularioEdit {
+    position: relative;
+    width: inherit;
+    height: 80%;
+    display: block;
 }
 
 input[type="text"] {
@@ -119,7 +127,6 @@ input[type="text"] {
     background: rgba(0, 0, 0, 0);
     width: 500px;
     height: 40px;
-    left: 14.5%;
     /*background: darkred;*/
 }
 
@@ -181,15 +188,17 @@ input::-moz-placeholder {
 }
 
 #nombre {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 23%;
+    top: 7%;
+    margin: auto;
 }
 
 #contrasena {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 34%;
+    top: 14%;
+    margin: auto;
 }
 
 #lista {
@@ -201,12 +210,12 @@ input::-moz-placeholder {
     font-family: 'Roboto-Light';
     font-size: 24px;
     background: rgba(0, 0, 0, 0);
-    position: absolute;
+    position: relative;
     width: 500px;
     height: 40px;
     border-bottom: solid #09556C 1px;
-    top: 45%;
-    left: 14.5%;
+    top: 21%;
+    margin: auto;
 }
 
 #lista:focus {
@@ -215,7 +224,7 @@ input::-moz-placeholder {
 
 #textPermiso {
     position: absolute;
-    top: 57%;
+    top: 50%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 20px;
@@ -226,7 +235,7 @@ input::-moz-placeholder {
     position: absolute;
     width: 300px;
     height: 145px;
-    top: 64%;
+    top: 58%;
     left: 14.5%;
     overflow: auto;
 }
@@ -251,7 +260,7 @@ input::-moz-placeholder {
 
 #submitNUser {
     position: absolute;
-    top: 87%;
+    top: 84%;
     left: 71%;
     color: #14A4D9;
     width: 100px;
@@ -308,7 +317,7 @@ input::-moz-placeholder {
 
 .errorNombre {
     position: absolute;
-    top: 30%;
+    top: 32%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 16px;
@@ -322,7 +331,7 @@ input::-moz-placeholder {
 
 .errorPass {
     position: absolute;
-    top: 41%;
+    top: 44%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 16px;
@@ -336,7 +345,7 @@ input::-moz-placeholder {
 
 .errorRol {
     position: absolute;
-    top: 52%;
+    top: 55%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 16px;
@@ -350,7 +359,7 @@ input::-moz-placeholder {
 
 .errorCheck {
     position: absolute;
-    top: 61%;
+    top: 62.5%;
     left: 14.5%;
     font-family: 'Roboto-Regular';
     font-size: 16px;
@@ -361,3 +370,125 @@ input::-moz-placeholder {
     color: #B71C1C;
     text-align: left;
 }
+
+/*Inicio media queries*/
+
+@media screen and (max-width: 1350px) {
+    
+    #logo {
+        display: none;
+    }
+
+    #card {
+        position: relative;
+        margin: auto auto 50px auto;
+        left: 0;
+        top: 50px;
+    }
+
+    #account {
+        width: 700px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    #card {
+        width: 600px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 450px;
+    }
+
+    #lista {
+        width: 450px;
+    }
+
+    #account {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    
+    #card {
+        width: 500px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 350px;
+    }
+
+    #lista {
+        width: 350px;
+    }
+
+    #account {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    
+    #card {
+        width: 400px;
+        height: 800px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 300px;
+    }
+
+    #lista {
+        width: 300px;
+    }
+
+    #account {
+        width: 400px;
+    }
+
+    #submitNUser {
+        top: 90%;
+        left: 40%; 
+    }
+
+    #elimUser {
+        top: 80%;
+        left: 12.5%;
+    }
+
+    .errorNombre {
+        top: 27%;
+        left: 12.5%;
+    }
+
+    .errorPass {
+        top: 37%;
+        left: 12.5%;
+    }
+
+    .errorRol {
+        top: 47%;
+        left: 12.5%;
+    }
+
+    .errorCheck {
+        top: 57%;
+        left: 12.5%;
+    }
+
+    #textPermiso {
+        left: 12.5%;
+        top: 46%;
+    }
+
+    #permisos {
+        left: 12.5%;
+        top: 54%;
+    }
+
+}
+
+/*Fin media queries*/

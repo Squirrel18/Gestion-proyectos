@@ -14,13 +14,13 @@
         <p id="titulo">Gestión de proyectos</p>
         <div id="card">
             <i class="material-icons md-48" id="fontAccount">account_circle</i>
-            <p id="pUsuario">Usuario</p>
             <form id="signIn" action="php/validUser.php" method="POST">
+                <p id="pUsuario">Usuario</p>
                 <input type="text" id="usuario" name="user" maxlength="25" required onfocusout="validUser(this.value)" oninput="eliminarError()" onfocus="eliminarError()">
                 <input type="password" id="contrasena" name="key" maxlength="15" oninput="eliminarError()" onfocus="eliminarError()">
+                <p id="pContrasena">Contraseña</p>
                 <input type="submit" id="bIngresa" value="Ingresar">
             </form>
-            <p id="pContrasena">Contraseña</p>
             <svg id="check">
                 <path id="rutaCheck" d="M8 30 L20 40 L45 3" stroke-width="5" stroke="green" fill="none" stroke-dasharray="70" stroke-dashoffset="70" stroke-linecap="square" stroke-linejoin="round"/>
                 Sorry, your browser does not support inline SVG.

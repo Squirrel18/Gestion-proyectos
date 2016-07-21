@@ -41,34 +41,34 @@ p {
     padding: 0;
 }
 
+#account {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 100px;
+}
+
 #fontAccount {
+    position: relative; 
     font-size: 108px;
-    position: absolute; 
-    top: 2%;
-    left: 91%;
+    left: -20px;
     color: #FFF;
 }
 
 #textUser {
-    position: absolute;
-    width: 550px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-light';
     font-size: 28px;
-    top: 4.5%;
-    left: 56%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #textRol {
-    position: absolute;
-    width: 300px;
-    height: 30px;
+    position: relative;
     font-family: 'Roboto-Light';
     font-size: 24px;
-    top: 9.5%;
-    left: 71.6%;
-    text-align: right;
+    left: -140px;
+    top: -90px;
 }
 
 #card {
@@ -83,6 +83,7 @@ p {
     border-radius: 7px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
 }
 
 #logo {
@@ -93,24 +94,26 @@ p {
 
 #fontNewFolder {
     font-size: 96px;
-    position: absolute; 
-    top: 2%;
-    left: 43%;
+    position: relative; 
+    top: 10px;
     color: #09556C;
+    margin: auto;
 }
 
 #textNewP  {
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    width: 700px;
-    height: 40px;
+    position: relative;
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
-    text-align: center;
-    top: 15%;
-    left: 0;
+    top: 1%;
+    margin: auto;
+}
+
+#formNewPro {
+    position: relative;
+    width: inherit;
+    height: 80%;
+    display: block;
 }
 
 input[type="text"] {
@@ -124,46 +127,342 @@ input[type="text"] {
     background: rgba(0, 0, 0, 0);
     width: 500px;
     height: 40px;
-    left: 14.5%;
 }
 
 input[type="text"]:focus {
     outline: 0px;
 }
 
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 28px;
+    height: 28px;
+    border: solid #09556C 2px;
+    border-radius: 2px;
+    padding: 0;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}
+
+input[type="checkbox"]:checked {
+    border: solid #09556C 1px;
+    background-color: #09556C;
+    background-image: url("../assets/check.png");
+    background-repeat: no-repeat;
+    background-position-x: 3px;
+    background-position-y: 3px;
+}
+
+input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto-Medium';
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0);
+}
+
+input[type="submit"] {
+    outline: 0px;
+}
+
+input::-webkit-input-placeholder {
+    color: #09556C;
+    font-family: 'Roboto-Regular';
+    font-size: 18px;
+}
+
+input::-moz-placeholder {
+    color: #09556C;
+    font-family: 'Roboto-Regular';
+    font-size: 18px;
+}
+
 #nomProyec {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 25%;
+    top: 40px;
+    margin: auto;
 }
 
 #numProyec {
-    position: absolute;
+    position: relative;
     border-bottom: solid #09556C 1px;
-    top: 37%;
+    top: 70px;
+    margin: auto;
 }
 
 #textDescri {
-    position: absolute;
-    top: 50%;
-    left: 14.5%;
+    position: relative;
+    width: 250px;
+    top: 18%;
+    left: 14%;
     font-family: 'Roboto-Regular';
     font-size: 20px;
     color: #09556C;
+    text-align: left;
 }
 
 #textDesc {
-    position: absolute;
+    position: relative;
     width: 495px;
-    height: 120px;
-    top: 55%;
-    left: 14.5%;
-    /*border: solid #09556C 1px;*/
-    border: none;
+    height: 100px;
+    max-width: 495px;
+    max-height: 100px;
+    min-width: 495px;
+    min-height: 100px;
+    top: 130px;
+    border: solid #09556C 1px;
     font-family: 'Roboto-light';
     font-size: 22px;
+    margin: auto;
 }
 
 #textDesc:focus {
     outline: 0px;
 }
+
+#textCarpetas {
+    position: relative;
+    width: 250px;
+    top: 27%;
+    left: 14%;
+    font-family: 'Roboto-Regular';
+    font-size: 20px;
+    color: #09556C;
+    text-align: left;
+}
+
+#carpetas {
+    position: absolute;
+    width: 250px;
+    height: 130px;
+    top: 72%;
+    left: 14.5%;
+    overflow: auto;
+    display: block;
+}
+
+.carpBox {
+    display: block;
+    margin: 0;
+}
+
+.textBox {
+    display: block;
+    position: relative;
+    margin: 20px 0;
+    width: 180px;
+    height: 20px;
+    text-align: left;
+    color: #09556C;
+    top: -25px;
+    left: 40px;
+    margin: 0;
+}
+
+#submitNProy {
+    position: absolute;
+    top: 86%;
+    left: 71%;
+    color: #14A4D9;
+    width: 100px;
+    height: 50px;
+    -webkit-transition: box-shadow 0.2s ease-in-out,
+                        border 0.5s ease-in-out;
+    -moz-transition: box-shadow 0.2s ease-in-out,
+                     border 0.5s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out,
+                border 0.5s ease-in-out;  
+}
+
+#submitNProy:hover {
+    border: solid #09556C 1px;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#submitNProy:active {
+    background: #09556C;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+}
+
+.errorNombre {
+    position: absolute;
+    top: 32%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorNumero {
+    position: absolute;
+    top: 42%;
+    left: 14.5%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+.errorCheck {
+    position: absolute;
+    top: 72.5%;
+    left: 27%;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+    width: 300px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    color: #B71C1C;
+    text-align: left;
+}
+
+/*Inicio media queries*/
+
+@media screen and (max-width: 1350px) {
+    
+    #logo {
+        display: none;
+    }
+
+    #card {
+        position: relative;
+        margin: auto auto 50px auto;
+        left: 0;
+        top: 50px;
+    }
+
+    #account {
+        width: 700px;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    #card {
+        width: 600px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 450px;
+    }
+
+    #account {
+        width: 600px;
+    }
+
+    #textDesc {
+        width: 450px;
+        max-width: 450px;
+        min-width: 450px;
+    }
+
+    #textDescri {
+        left: 12.5%;
+    }
+
+    #textCarpetas {
+        left: 12.5%;
+    }
+
+    #carpetas {
+        left: 12.5%;
+    }
+}
+
+@media screen and (max-width: 668px) {
+    
+    #card {
+        width: 500px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 350px;
+    }
+
+    #account {
+        width: 500px;
+    }
+
+    #textDesc {
+        width: 350px;
+        max-width: 350px;
+        min-width: 350px;
+    }
+
+    #textDescri {
+        left: 14.5%;
+    }
+
+    #textCarpetas {
+        left: 14.5%;
+    }
+
+    #carpetas {
+        left: 14.5%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    
+    #card {
+        width: 400px;
+        height: 800px;
+    }
+
+    input[type="text"], input[type="number"] {
+        width: 300px;
+    }
+
+    #account {
+        width: 400px;
+    }
+
+    #textDesc {
+        width: 300px;
+        max-width: 300px;
+        min-width: 300px;
+    }
+
+    #textDescri {
+        left: 12.5%;
+    }
+
+    #textCarpetas {
+        left: 12.5%;
+        top: 25%;
+    }
+
+    #carpetas {
+        top: 65%;
+        left: 12.5%;
+    }
+
+    #submitNProy {
+        top: 90%;
+        left: 40%;
+    }
+
+}
+
+/*Fin media queries*/
