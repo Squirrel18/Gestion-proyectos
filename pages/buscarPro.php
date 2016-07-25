@@ -5,6 +5,7 @@
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaFindP.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="../fonts/stylesheet.css">
     </head>
     <body>
         <input type="search" id="buscar" oninput="ejecutar()">
