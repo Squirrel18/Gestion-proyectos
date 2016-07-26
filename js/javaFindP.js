@@ -7,7 +7,7 @@ function ejecutar() {
         $.ajax({
             method: "POST",
             //content type el tipo de dato que se está enviando
-            url: "../php/findPro.php",
+            url: "../php/admFolder.php",
             //datatype es el tipo de dato que se espera
             dataType: "html",
             data: parametros,
@@ -24,7 +24,8 @@ function ejecutar() {
 function cambiarDir(dato) {
     $("#contenedor").empty();
     var conten = document.getElementById("contenedor");
-    var parametros = {folderId: dato};
+    var datoEspacios = dato.replace(/#/g, " ");
+    var parametros = {folderId: datoEspacios};
     $.ajax({
         method: "POST",
         //content type el tipo de dato que se está enviando
@@ -34,6 +35,22 @@ function cambiarDir(dato) {
         data: parametros,
         success: function(datos) {
             conten.innerHTML = datos;
+        }
+    });
+}
+
+function atras(dato) {
+    var datoEspacios = dato.replace(/#/g, " ");
+    var parametros = {folderParent: datoEspacios};
+    $.ajax({
+        method: "POST",
+        //content type el tipo de dato que se está enviando
+        url: "../php/admFolder.php",
+        //datatype es el tipo de dato que se espera
+        dataType: "html",
+        data: parametros,
+        success: function(datos) {
+            console.log(datos);
         }
     });
 }

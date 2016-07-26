@@ -1,25 +1,21 @@
 <?php
     require 'verifData.php';
-    $folder = verifDatos($_POST["folderId"]);
 
     $directorio = new directorios();
 
-    if(isset($folder)) {
-        require 'conexion.php';
-        $sql = "SELECT nombre, numero FROM proyectos WHERE id='".$folder."'";
-        $result = $conexion->query($sql);
+    if(isset($_POST["datoBus"])) {
+        $usuario = verifDatos($_POST["datoBus"]);
+        $directorio->getDir($usuario);
+    }
 
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                $total = $row['nombre']." ".$row['numero'];
-                $directorio->setDir($total);
-            }
-        } else {
-            echo "0 results";
-        }
-        $conexion->close();
-    } else {
-        echo "error";
+    if(isset($_POST["folderId"])) {
+        $folder = verifDatos($_POST["folderId"]);
+        $directorio->setDir($folder);
+    }
+
+    if(isset($_POST["folderParent"])) {
+        $parent = verifDatos($_POST["folderParent"]);
+        
     }
     
     /**
@@ -38,25 +34,52 @@
         }
 
         public function setDir($setRuta) {
-            
-            if($setRuta == "" || $setRuta == null) {
-                $this->directorio = dir($this->dirPrincipal);
-            } else {
-                $this->directorio = dir($this->dirPrincipal.$setRuta);
+            $this->directorio = dir($setRuta);
+            $direc = $this->directorio;
+            $atras = true;
+    
+            while(false != ($folders = $direc->read())) {
+                if($folders != "." && $folders != "..") {
+                    if(is_dir($direc->path."/".$folders)) {
+                        $resulUTF8 = $this->codificacion($folders);
+                        $total = $direc->path."/".$resulUTF8;
+                        $total = str_replace(" ", "#", $total);
+                        $padre = dirname($total);
+                        if($atras) {
+                            echo "<input type='button' value='atras' onclick="."atras('$padre')".">";
+                            $atras = false;
+                        }
+                        echo "<p class='lista' onclick="."cambiarDir('$total')".">$resulUTF8</p>";
+                    } else {
+                        //echo "Son archivos";
+                    }
+                }
             }
+            $direc->close();
+        }
 
+        public function getDir($name) {
+            $this->directorio = dir($this->dirPrincipal);
             $direc = $this->directorio;
 
             while(false != ($folders = $direc->read())) {
                 if($folders != "." && $folders != "..") {
                     if(is_dir($direc->path."/".$folders)) {
                         $resulUTF8 = $this->codificacion($folders);
-                        echo "<p class='lista'>$resulUTF8</p>";
+                        if(stristr($resulUTF8, $name)) {
+                            $varSub = stripos($resulUTF8, "_");
+                            $varLength = strlen($resulUTF8);
+                            $resultado = substr($resulUTF8, $varSub + 1, $varLength);
+                            $reempla = str_replace(" ", "#", $resulUTF8);
+                            $total = $direc->path.$reempla;
+                            echo "<p class='lista' onclick="."cambiarDir("."'$total'".")".">$resulUTF8</p>";
+                        }
                     } else {
                         //echo "Son archivos";
                     }
                 }
             }
+            $direc->close();
         }
 
         private function codificacion($datos) {

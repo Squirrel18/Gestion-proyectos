@@ -6,36 +6,19 @@
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaFindP.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
+        <link rel="stylesheet" href="../css/buscarPro.css">
     </head>
     <body>
-        <input type="search" id="buscar" oninput="ejecutar()">
-        <div id="contenedor"></div>
+        <div id="account">
+            <i class="material-icons md-48" id="fontAccount">account_circle</i>
+            <p id="textUser">Nombre de usuario</p>
+            <p id="textRol">Sistemas</p>
+        </div>
+        <div id="card">
+            <i class="material-icons md-48" id="fontFindP">search</i>
+            <p id="textFindP">Buscar proyecto</p>
+            <input type="search" id="buscar" oninput="ejecutar()" placeholder="Buscar">
+            <div id="contenedor"></div>
+        </div>
     </body>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-        }
-
-        .lista {
-            width: 300px;
-            height: 30px;
-            text-align: left;
-            top: 0;
-            left: 0;
-            margin: 15px 0;
-            padding: 0;
-            font-family: 'Roboto-Regular';
-            font-size: 24px;
-            color: #696969;
-        }
-
-        .lista:hover {
-            background: rgba(20, 164, 217, 0.5);
-        }
-
-        .listCarp {
-            text-decoration: none;
-        }
-    </style>
 </html>

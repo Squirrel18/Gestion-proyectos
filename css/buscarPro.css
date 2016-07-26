@@ -1,0 +1,284 @@
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+body {
+    height: 100%;
+    font-family: 'Roboto-Medium';
+    background: #14A4D9;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+#account {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 100px;
+}
+
+#fontAccount {
+    position: relative; 
+    font-size: 108px;
+    left: -20px;
+    color: #FFF;
+}
+
+#textUser {
+    position: relative;
+    font-family: 'Roboto-light';
+    font-size: 28px;
+    left: -140px;
+    top: -90px;
+}
+
+#textRol {
+    position: relative;
+    font-family: 'Roboto-Light';
+    font-size: 24px;
+    left: -140px;
+    top: -90px;
+}
+
+#card {
+    position: relative;
+    margin: auto auto 50px auto;
+    left: 0;
+    top: 25px;
+    width: 1350px;
+    height: 600px;
+    background: #fff;
+    padding: 0;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+#fontFind {
+    font-size: 96px;
+    position: relative; 
+    top: 10px;
+    color: #09556C;
+    margin: auto;
+}
+
+#textFind {
+    position: relative;
+    font-family: 'Roboto-Regular';
+    font-size: 30px;
+    color: #09556C;
+    top: 1%;
+    margin: auto;
+}
+
+.lista {
+    width: 1200px;
+    height: 30px;
+    text-align: left;
+    top: 0;
+    left: 0;
+    margin: 15px 0;
+    padding: 0;
+    font-family: 'Roboto-Regular';
+    font-size: 24px;
+    color: #696969;
+    cursor: pointer;
+}
+
+.lista:hover {
+    background: rgba(20, 164, 217, 0.5);
+}
+
+#fontFindP {
+    font-size: 96px;
+    position: absolute;
+    left: 2%;
+    top: 10px;
+    color: #09556C;
+    margin: auto;
+}
+
+#textFindP {
+    position: absolute;
+    font-family: 'Roboto-Regular';
+    left: 120px;
+    font-size: 30px;
+    color: #09556C;
+    top: 35px;
+    margin: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto-light';
+    font-size: 24px;
+    background: rgba(0, 0, 0, 0);
+    width: 500px;
+    height: 50px;
+}
+
+#buscar {
+    position: absolute;
+    top: 30px;
+    left: 800px;
+    border-bottom: solid 1px #09556C;
+    margin: auto;
+}
+
+input::-webkit-input-placeholder {
+    color: #09556C;
+    font-family: 'Roboto-Regular';
+    font-size: 24px;
+}
+
+input::-moz-placeholder {
+    color: #09556C;
+    font-family: 'Roboto-Regular';
+    font-size: 24px;
+}
+
+#buscar:focus {
+    outline: 0px;
+}
+
+#contenedor {
+    position: absolute;
+    width: 1200px;
+    height: 350px;
+    left: 40px;
+    top: 140px;
+}
+
+/*Inicio media queries*/
+
+@media screen and (min-height: 900px) {
+
+    #card {
+        height: 700px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+
+    #card {
+        width: 1000px;
+    }
+
+    #account {
+        width: 700px;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    
+    #card {
+        width: 600px;
+    }
+
+    input[type="search"] {
+        width: 450px;
+    }
+
+    #account {
+        width: 600px;
+    }
+
+    #contenCoin {
+        width: 450px;
+    }
+
+    .listaCoin {
+        width: 400px;
+    }
+
+}
+
+@media screen and (max-width: 668px) {
+    
+    #card {
+        width: 500px;
+    }
+
+    input[type="search"] {
+        width: 350px;
+    }
+
+    #account {
+        width: 500px;
+    }
+
+    #contenCoin {
+        width: 350px;
+    }
+
+    .listaCoin {
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 568px) {
+    
+    #card {
+        width: 400px;
+        height: 800px;
+    }
+
+    input[type="search"] {
+        width: 300px;
+    }
+
+    #account {
+        width: 400px;
+    }
+
+    #contenCoin {
+        width: 300px;
+        height: 450px;
+    }
+
+    .listaCoin {
+        width: 300px;
+    }
+
+}
+
+/*Fin media queries*/

@@ -56,13 +56,13 @@
             $stmt->execute();
             $ultimoId = $conexion->insert_id;
             $stmt->close();
-            mkdir("../proyectos/".$name." ".$num, 0700);
+            mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num), 0700);
         } else {
             echo "No realizo nada";
         }
 
         for($vari = 0; $vari < count($contenPer); $vari++) {
-            mkdir("../proyectos/".$name." ".$num."/".utf8_decode($contenPer[$vari]), 0700);
+            mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num)."/".utf8_decode($contenPer[$vari]), 0700);
         }
 
         $conexion->close();
