@@ -21,6 +21,15 @@ function ejecutar() {
     }
 }
 
+$(document).on({
+    ajaxStart: function() { 
+        document.getElementById("cargar").style.display = "block";
+    },
+    ajaxStop: function() {
+        document.getElementById("cargar").style.display = "none";
+    }    
+});
+
 function cambiarDir(dato) {
     $("#contenedor").empty();
     var conten = document.getElementById("contenedor");
@@ -40,6 +49,7 @@ function cambiarDir(dato) {
 }
 
 function atras(dato) {
+    var conten = document.getElementById("contenedor");
     var datoEspacios = dato.replace(/#/g, " ");
     var parametros = {folderParent: datoEspacios};
     $.ajax({
@@ -50,7 +60,7 @@ function atras(dato) {
         dataType: "html",
         data: parametros,
         success: function(datos) {
-            console.log(datos);
+            conten.innerHTML = datos;
         }
     });
 }

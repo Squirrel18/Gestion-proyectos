@@ -18,6 +18,7 @@
             <i class="material-icons md-48" id="fontFindP">search</i>
             <p id="textFindP">Buscar proyecto</p>
             <input type="search" id="buscar" oninput="ejecutar()" placeholder="Buscar">
+            <div id="cargar"><div id="despla"></div></div>
             <div id="contenedor"></div>
         </div>
     </body>
