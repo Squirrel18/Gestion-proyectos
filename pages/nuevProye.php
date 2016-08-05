@@ -11,6 +11,7 @@
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaNewP.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
+        <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/nuevProye.css">
     </head>
     <body>
@@ -21,12 +22,12 @@
         </div>
         <div id="card">
             <i class="material-icons md-48" id="fontNewFolder">create_new_folder</i>
-            <p id="textNewP">Nuevo proyecto</p>
+            <p id="subTitulo">Nuevo proyecto</p>
             <form id="formNewPro" onsubmit="return validNProy()" method="POST" action="../php/newPro.php">
-                <input id="nomProyec" type="text" name="nombre" placeholder="Nombre del proyecto" required autocomplete="off">
-                <input id="numProyec" type="text" name="numero" placeholder="Número solicitud" required autocomplete="off">
+                <input id="nomProyec" type="text" name="nombre" maxlength="50" placeholder="Nombre del proyecto" required autocomplete="off">
+                <input id="numProyec" type="text" name="numero" maxLength="10" placeholder="Número solicitud" required autocomplete="off">
                 <p id="textDescri">Descripción</p>
-                <textarea id="textDesc" maxlength="200" name="descripcion" placeholder="Descripción del proyecto, máximo 200 caracteres."></textarea>
+                <textarea id="textDesc" maxlength="200" name="descripcion" placeholder="Descripción del proyecto, máximo 200 carácteres."></textarea>
                 <p id="textCarpetas">Carpetas</p>
                 <div id="carpetas"></div>
                 <input id="submitNProy" type="submit" value="Listo">

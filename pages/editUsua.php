@@ -11,6 +11,7 @@
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaEditU.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
+        <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/editUsua.css">
     </head>
     <body>
@@ -21,10 +22,10 @@
         </div>
         <div id="card">
             <i class="material-icons md-48" id="fontEdit">create</i>
-            <p id="textEdit">Editar usuario</p>
+            <p id="subTitulo">Editar usuario</p>
             <form id="formularioEdit" onsubmit="return validar()" method="POST" action="../php/editUser.php">
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required autocomplete="off">
-                <input type="text" name="pass" id="contrasena" placeholder="Contraseña" required autocomplete="off">
+                <input type="text" name="nombre" id="nombre" maxlength="45" placeholder="Nombre" required autocomplete="off">
+                <input type="text" name="pass" id="contrasena" maxlength="25" placeholder="Contraseña" required autocomplete="off">
                 <input id="lista" list="Rol" name="rol" placeholder="Rol" required autocomplete="off">
                 <datalist id="Rol"></datalist>
                 <p id="textPermiso">Permisos</p>

@@ -6,6 +6,7 @@
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaFindP.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
+        <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/buscarPro.css">
     </head>
     <body>

@@ -1,76 +1,3 @@
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-body {
-    height: 100%;
-    font-family: 'Roboto-Medium';
-    background: #14A4D9;
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-}
-
-#account {
-    position: relative;
-    text-align: right;
-    width: 100%;
-    height: 100px;
-}
-
-#fontAccount {
-    position: relative; 
-    font-size: 108px;
-    left: -20px;
-    color: #FFF;
-}
-
-#textUser {
-    position: relative;
-    font-family: 'Roboto-light';
-    font-size: 28px;
-    left: -140px;
-    top: -90px;
-}
-
-#textRol {
-    position: relative;
-    font-family: 'Roboto-Light';
-    font-size: 24px;
-    left: -140px;
-    top: -90px;
-}
-
 #card {
     position: absolute;
     width: 700px;
@@ -94,43 +21,18 @@ p {
     margin: auto;
 }
 
-#textFind {
-    position: relative;
-    font-family: 'Roboto-Regular';
-    font-size: 30px;
-    color: #09556C;
-    top: 1%;
-    margin: auto;
-}
-
 #logo {
     position: absolute;
     top: 30%;
     left: 63%;
 }
 
-input[type="search"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto-light';
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0);
-    width: 500px;
-    height: 50px;
-}
-
-input[type="search"]:focus {
-    outline: 0px;
-}
-
 #buscar {
     position: relative;
     top: 50px;
-    border-bottom: solid 1px #09556C;
     margin: auto;
+    width: 500px;
+    height: 50px;
 }
 
 .textErrorLetras {
@@ -140,11 +42,6 @@ input[type="search"]:focus {
     color: #B71C1C;
     font-family: 'Roboto-Regular';
     font-size: 20px;
-
-}
-
-a {
-    text-decoration: none;
 }
 
 #contenCoin {
@@ -158,7 +55,7 @@ a {
 }
 
 .listaCoin {
-    width: 300px;
+    width: 450px;
     height: 30px;
     text-align: left;
     top: 0;
@@ -168,7 +65,7 @@ a {
     font-family: 'Roboto-Regular';
     font-size: 24px;
     color: #696969;
-
+    overflow: hidden;
 }
 
 .nombre {
@@ -182,8 +79,6 @@ a {
 
 .listaCoin:hover {
     background: rgba(20, 164, 217, 0.5);
-    /*border: solid 1px #09556C;
-    border-radius: 2px;*/
 }
 
 /*Inicio media queries*/
@@ -214,7 +109,7 @@ a {
         width: 600px;
     }
 
-    input[type="search"] {
+    #buscar {
         width: 450px;
     }
 
@@ -238,7 +133,7 @@ a {
         width: 500px;
     }
 
-    input[type="search"] {
+    #buscar {
         width: 350px;
     }
 
@@ -263,7 +158,7 @@ a {
         height: 800px;
     }
 
-    input[type="search"] {
+    #buscar {
         width: 300px;
     }
 

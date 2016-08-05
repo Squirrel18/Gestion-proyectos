@@ -11,6 +11,7 @@
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaFindU.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
+        <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/buscarUsua.css">
     </head>
     <body>
@@ -21,7 +22,7 @@
         </div>
         <div id="card">
             <i class="material-icons md-48" id="fontFind">search</i>
-            <p id="textFind">Buscar usuario</p>
+            <p id="subTitulo">Buscar usuario</p>
             <input type="search" id="buscar" placeholder="Buscar usuario" oninput="busUsuario()">
             <div id="contenCoin"></div>
         </div>

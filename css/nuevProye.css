@@ -1,76 +1,3 @@
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-body {
-    height: 100%;
-    font-family: 'Roboto-Medium';
-    background: #14A4D9;
-    margin: 0;
-    padding: 0;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-}
-
-#account {
-    position: relative;
-    text-align: right;
-    width: 100%;
-    height: 100px;
-}
-
-#fontAccount {
-    position: relative; 
-    font-size: 108px;
-    left: -20px;
-    color: #FFF;
-}
-
-#textUser {
-    position: relative;
-    font-family: 'Roboto-light';
-    font-size: 28px;
-    left: -140px;
-    top: -90px;
-}
-
-#textRol {
-    position: relative;
-    font-family: 'Roboto-Light';
-    font-size: 24px;
-    left: -140px;
-    top: -90px;
-}
-
 #card {
     position: absolute;
     width: 700px;
@@ -100,15 +27,6 @@ p {
     margin: auto;
 }
 
-#textNewP  {
-    position: relative;
-    font-family: 'Roboto-Regular';
-    font-size: 30px;
-    color: #09556C;
-    top: 1%;
-    margin: auto;
-}
-
 #formNewPro {
     position: relative;
     width: inherit;
@@ -116,85 +34,20 @@ p {
     display: block;
 }
 
-input[type="text"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto-light';
-    font-size: 22px;
-    background: rgba(0, 0, 0, 0);
+#nomProyec {
+    position: relative;
+    top: 40px;
+    margin: auto;
     width: 500px;
     height: 40px;
 }
 
-input[type="text"]:focus {
-    outline: 0px;
-}
-
-input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 28px;
-    height: 28px;
-    border: solid #09556C 2px;
-    border-radius: 2px;
-    padding: 0;
-}
-
-input[type="checkbox"]:focus {
-    outline: none;
-}
-
-input[type="checkbox"]:checked {
-    border: solid #09556C 1px;
-    background-color: #09556C;
-    background-image: url("../assets/check.png");
-    background-repeat: no-repeat;
-    background-position-x: 3px;
-    background-position-y: 3px;
-}
-
-input[type="submit"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    border: none;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto-Medium';
-    font-size: 28px;
-    background: rgba(0, 0, 0, 0);
-}
-
-input[type="submit"] {
-    outline: 0px;
-}
-
-input::-webkit-input-placeholder {
-    color: #09556C;
-    font-family: 'Roboto-Regular';
-    font-size: 18px;
-}
-
-input::-moz-placeholder {
-    color: #09556C;
-    font-family: 'Roboto-Regular';
-    font-size: 18px;
-}
-
-#nomProyec {
-    position: relative;
-    border-bottom: solid #09556C 1px;
-    top: 40px;
-    margin: auto;
-}
-
 #numProyec {
     position: relative;
-    border-bottom: solid #09556C 1px;
     top: 70px;
     margin: auto;
+    width: 500px;
+    height: 40px;
 }
 
 #textDescri {
@@ -218,9 +71,10 @@ input::-moz-placeholder {
     min-height: 100px;
     top: 130px;
     border: solid #09556C 1px;
-    font-family: 'Roboto-light';
+    font-family: 'Roboto-Regular';
     font-size: 22px;
     margin: auto;
+    color: #09556C;
 }
 
 #textDesc:focus {
@@ -272,13 +126,7 @@ input::-moz-placeholder {
     left: 71%;
     color: #14A4D9;
     width: 100px;
-    height: 50px;
-    -webkit-transition: box-shadow 0.2s ease-in-out,
-                        border 0.5s ease-in-out;
-    -moz-transition: box-shadow 0.2s ease-in-out,
-                     border 0.5s ease-in-out;
-    transition: box-shadow 0.2s ease-in-out,
-                border 0.5s ease-in-out;  
+    height: 50px;    
 }
 
 #submitNProy:hover {
@@ -363,7 +211,7 @@ input::-moz-placeholder {
         width: 600px;
     }
 
-    input[type="text"], input[type="number"] {
+    #numProyec, #nomProyec {
         width: 450px;
     }
 
@@ -396,7 +244,7 @@ input::-moz-placeholder {
         width: 500px;
     }
 
-    input[type="text"], input[type="number"] {
+    #numProyec, #nomProyec {
         width: 350px;
     }
 
@@ -430,7 +278,7 @@ input::-moz-placeholder {
         height: 800px;
     }
 
-    input[type="text"], input[type="number"] {
+    #numProyec, #nomProyec {
         width: 300px;
     }
 
