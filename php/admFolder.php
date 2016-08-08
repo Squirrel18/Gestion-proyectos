@@ -15,7 +15,6 @@
 
     if(isset($_POST["folderParent"])) {
         $parent = verifDatos($_POST["folderParent"]);
-        
     }
     
     /**
@@ -38,6 +37,8 @@
             $direc = $this->directorio;
             $atras = true;
             $contador = 0;
+            $ruta = true;
+
             while(false != ($folders = $direc->read())) {
                 $contador++;
                 if($folders != "." && $folders != "..") {
@@ -47,12 +48,24 @@
                         $total = $direc->path."/".$resulUTF8;
                         $total = str_replace(" ", "#", $total);
                         $padre = dirname($total);
+                        if($ruta == true) {
+                            echo "<p id='ruta'>".$direc->path."</p>";
+                            $ruta = false;
+                        }
                         echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir('$total')".">$resulUTF8</p>";
                     } else {
+                        if($ruta == true) {
+                            echo "<p id='ruta'>".$direc->path."</p>";
+                            $ruta = false;
+                        }
                         $resulUTF8 = $this->codificacion($organizar[$contador]);
                         echo "<i class='material-icons md-48 fontFile'>insert_drive_file</i><p class='listaFile'>$resulUTF8</p>";
                     }
                 }
+            }
+            if($ruta == true) {
+                echo "<p id='ruta'>".$direc->path."</p>";
+                $ruta = false;
             }
             $direc->close();
         }
@@ -61,6 +74,7 @@
             $this->directorio = dir($this->dirPrincipal);
             $direc = $this->directorio;
             $contador = 0;
+            $ruta = true;
 
             while(false != ($folders = $direc->read())) {
                 $contador++;
@@ -74,6 +88,10 @@
                             $resultado = substr($resulUTF8, $varSub + 1, $varLength);
                             $reempla = str_replace(" ", "#", $resulUTF8);
                             $total = $direc->path.$reempla;
+                            if($ruta == true) {
+                                echo "<p id='ruta'>".$direc->path."</p>";
+                                $ruta = false;
+                            }
                             echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir("."'$total'".")".">$resulUTF8</p>";
                         }
                     } else {
