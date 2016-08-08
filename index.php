@@ -14,7 +14,7 @@
     <body>
         <p id="titulo">Gestión de proyectos</p>
         <div id="card">
-            <i class="material-icons md-48" id="fontAccount">account_circle</i>
+            <i class="material-icons md-48" id="fontAccountForm">account_circle</i>
             <form id="signIn" action="php/validUser.php" method="POST">
                 <p id="pUsuario">Usuario</p>
                 <input type="text" id="usuario" name="user" maxlength="25" required onfocusout="validUser(this.value)" oninput="eliminarError()" onfocus="eliminarError()">
