@@ -110,7 +110,7 @@
     width: 750px;
     height: 400px;
     left: 40px;
-    top: 150px;
+    top: 170px;
     overflow: auto;
 }
 
@@ -185,7 +185,7 @@
 
 #contDer {
     position: absolute;
-    top: 150px;
+    top: 170px;
     left: 800px;
     width: 500px;
     height: 400px;
@@ -201,6 +201,7 @@
     border-radius: 3px;
     color: #09556C;
     font-size: 22px;
+    display: none;
 }   
 
 #cargaArchivos > p {
@@ -306,6 +307,7 @@
                      border 0.5s ease-in-out;
     transition: box-shadow 0.2s ease-in-out,
                 border 0.5s ease-in-out;
+    display: none;
 }
 
 #fileElem + label > p {
@@ -336,6 +338,7 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
+    display: none;
 }
 
 #botonCargar:hover {
@@ -362,11 +365,31 @@
 }
 
 #atras {
-    color: #696969;
-    font-size: 40px;
     position: absolute;
     top: 16%;
     left: 3%;
+    width: 45px;
+    height: 45px;
+    color: #696969;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 50%;
+    display: none;
+}
+
+#fontAtras {
+    font-size: 45px;
+}
+
+#atras:hover {
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 7px 10px 1px rgba(0, 0, 0, 0.2);
+    background: #E9E9E9;
+}
+
+#atras:active {
+    color: #fff;
+    box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2), 0 7px 10px 1px rgba(0, 0, 0, 0.2);
+    background: #09556C;
 }
 
 /*Inicio media queries*/

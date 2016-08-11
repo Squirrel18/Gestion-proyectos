@@ -4,8 +4,8 @@
     $directorio = new directorios();
 
     if(isset($_POST["datoBus"])) {
-        $usuario = verifDatos($_POST["datoBus"]);
-        $directorio->getDir($usuario);
+        $buscar = verifDatos($_POST["datoBus"]);
+        $directorio->getDir($buscar);
     }
 
     if(isset($_POST["folderId"])) {
@@ -33,6 +33,14 @@
         }
 
         public function setDir($setRuta) {
+            #$setRuta es el dato que se envía de la carpeta sobre la que se selecciono
+            #Se descodifica $setRuta porque esta en utf8 y el lector de directorios esta leyendo en ISO-8859-1
+            #Se asigna la dirección que viene en $setRuta
+
+            $valorSet = strlen($setRuta) + 1;
+            $valorDirP = strlen($this->dirPrincipal);
+
+            $setRuta = utf8_decode($setRuta);
             $this->directorio = dir($setRuta);
             $direc = $this->directorio;
             $atras = true;
@@ -44,33 +52,41 @@
                 if($folders != "." && $folders != "..") {
                     $organizar[$contador] = $folders;
                     if(is_dir($direc->path."/".$folders)) {
-                        $resulUTF8 = $this->codificacion($organizar[$contador]);
-                        $total = $direc->path."/".$resulUTF8;
+                        $folders = utf8_encode($folders);
+                        $path = utf8_encode($direc->path);
+                        
+                        //$resulUTF8 = $this->codificacion($organizar[$contador]);
+
+                        $total = $path."/".$folders;
                         $total = str_replace(" ", "#", $total);
-                        $padre = dirname($total);
+
                         if($ruta == true) {
-                            echo "<p id='ruta'>".$direc->path."</p>";
+                            echo "<p id='ruta'>".$path."</p>";
                             $ruta = false;
                         }
-                        echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir('$total')".">$resulUTF8</p>";
+                        echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir('$total')".">$folders</p>";
                     } else {
                         if($ruta == true) {
-                            echo "<p id='ruta'>".$direc->path."</p>";
+                            $path = utf8_encode($direc->path);
+                            echo "<p id='ruta'>".$path."</p>";
                             $ruta = false;
                         }
-                        $resulUTF8 = $this->codificacion($organizar[$contador]);
-                        echo "<i class='material-icons md-48 fontFile'>insert_drive_file</i><p class='listaFile'>$resulUTF8</p>";
+                        $folders = utf8_encode($folders);
+                        echo "<i class='material-icons md-48 fontFile'>insert_drive_file</i><p class='listaFile'>$folders</p>";
                     }
                 }
             }
             if($ruta == true) {
-                echo "<p id='ruta'>".$direc->path."</p>";
+                $path = utf8_encode($direc->path);
+                echo "<p id='ruta'>".$path."</p>";
                 $ruta = false;
             }
             $direc->close();
         }
 
         public function getDir($name) {
+            #$name Es el parámetro a buscar dentro de la carpeta principal
+            #Asigna la dirección del directorio principal
             $this->directorio = dir($this->dirPrincipal);
             $direc = $this->directorio;
             $contador = 0;
@@ -79,20 +95,27 @@
             while(false != ($folders = $direc->read())) {
                 $contador++;
                 if($folders != "." && $folders != "..") {
-                    $organizar[$contador] = $folders;
                     if(is_dir($direc->path."/".$folders)) {
-                        $resulUTF8 = $this->codificacion($organizar[$contador]);
-                        if(stristr($resulUTF8, $name)) {
-                            $varSub = stripos($resulUTF8, "_");
+                        $folders = utf8_encode($folders);
+                        //Buscar los directorios a partir de $name
+                        if(stristr($folders, $name)) {
+                            
+                            /*$varSub = stripos($resulUTF8, "_");
                             $varLength = strlen($resulUTF8);
-                            $resultado = substr($resulUTF8, $varSub + 1, $varLength);
-                            $reempla = str_replace(" ", "#", $resulUTF8);
+                            $resultado = substr($resulUTF8, $varSub + 1, $varLength);*/
+
+                            #Se reemplaza los espacios de la cadena por '#' para no tener inconvenientes al momento de concatenar
+                            $reempla = str_replace(" ", "#", $folders);
                             $total = $direc->path.$reempla;
+
+                            #Este es el dato que se envía sobre la ruta donde esta.
                             if($ruta == true) {
                                 echo "<p id='ruta'>".$direc->path."</p>";
                                 $ruta = false;
                             }
-                            echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir("."'$total'".")".">$resulUTF8</p>";
+
+                            #Son las carpetas que existen
+                            echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir("."'$total'".")".">$folders</p>";
                         }
                     } else {
                         
@@ -105,6 +128,10 @@
         private function codificacion($datos) {
             $datos = utf8_encode($datos);
             return $datos;
+        }
+
+        public function atras() {
+
         }
     }
 ?>
