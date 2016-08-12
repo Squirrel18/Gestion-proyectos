@@ -1,8 +1,10 @@
 <?php
     require 'verifData.php';
 
+    #Se instancia la clase directorios
     $directorio = new directorios();
 
+    #Se verifica que dato es el que se envío
     if(isset($_POST["datoBus"])) {
         $buscar = verifDatos($_POST["datoBus"]);
         $directorio->getDir($buscar);
@@ -12,29 +14,26 @@
         $folder = verifDatos($_POST["folderId"]);
         $directorio->setDir($folder);
     }
-
-    if(isset($_POST["folderParent"])) {
-        $parent = verifDatos($_POST["folderParent"]);
-    }
     
     /**
-     * 
+     *Clase directorios
      */
     class directorios {
-        
+
         private static $dirPrincipal;
-        public $rutaDir;
+        //public $rutaDir;
         protected $directorio;
         private $folders;
 
         public function __construct() {
-            $this->rutaDir = null;
+            //$this->rutaDir = null;
             $this->dirPrincipal = "../proyectos/";
         }
 
+        #Configura la ruta que se envía.
         public function setDir($setRuta) {
             #$setRuta es el dato que se envía de la carpeta sobre la que se selecciono
-            #Se descodifica $setRuta porque esta en utf8 y el lector de directorios esta leyendo en ISO-8859-1
+            #Se quita la codificación de $setRuta porque esta en utf8 y el lector de directorios esta leyendo en ISO-8859-1
             #Se asigna la dirección que viene en $setRuta
 
             $valorSet = strlen($setRuta) + 1;
@@ -84,26 +83,21 @@
             $direc->close();
         }
 
+        #Configura la ruta principal y busca directorios según el parámetro
         public function getDir($name) {
             #$name Es el parámetro a buscar dentro de la carpeta principal
             #Asigna la dirección del directorio principal
             $this->directorio = dir($this->dirPrincipal);
             $direc = $this->directorio;
-            $contador = 0;
             $ruta = true;
 
             while(false != ($folders = $direc->read())) {
-                $contador++;
                 if($folders != "." && $folders != "..") {
                     if(is_dir($direc->path."/".$folders)) {
+                        #Se codifica a utf8
                         $folders = utf8_encode($folders);
-                        //Buscar los directorios a partir de $name
+                        #Buscar los directorios a partir de $name
                         if(stristr($folders, $name)) {
-                            
-                            /*$varSub = stripos($resulUTF8, "_");
-                            $varLength = strlen($resulUTF8);
-                            $resultado = substr($resulUTF8, $varSub + 1, $varLength);*/
-
                             #Se reemplaza los espacios de la cadena por '#' para no tener inconvenientes al momento de concatenar
                             $reempla = str_replace(" ", "#", $folders);
                             $total = $direc->path.$reempla;
@@ -123,15 +117,6 @@
                 }
             }
             $direc->close();
-        }
-
-        private function codificacion($datos) {
-            $datos = utf8_encode($datos);
-            return $datos;
-        }
-
-        public function atras() {
-
         }
     }
 ?>

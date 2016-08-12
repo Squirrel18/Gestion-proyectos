@@ -1,4 +1,5 @@
 function ejecutar() {
+    crearAtras();
     var buscar = document.getElementById("buscar");
     var conten = document.getElementById("contenedor");
     var parametros = {datoBus: buscar.value};
@@ -12,8 +13,6 @@ function ejecutar() {
             dataType: "html",
             data: parametros,
             success: function(datos) {
-                document.getElementById("nuevaCBut").style.display = "none";
-                document.getElementById("elimCBut").style.display = "none";
                 document.getElementById("atras").style.display = "none";
                 document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
                 conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
@@ -47,11 +46,7 @@ function cambiarDir(dato) {
         dataType: "html",
         data: parametros,
         success: function(datos) {
-            document.getElementById("nuevaCBut").style.display = "block";
-            document.getElementById("elimCBut").style.display = "block";
             document.getElementById("atras").style.display = "block";
-            document.getElementById("labelArch").style.display = "block";
-            document.getElementById("cargaArchivos").style.display = "block";
             document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
             conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
         }
@@ -59,6 +54,7 @@ function cambiarDir(dato) {
 }
 
 function atras() {
+
     var conten = document.getElementById("contenedor");
     var dato = document.getElementById("contRuta").children[0].innerText;
     var lastDir = dato.substring(0, dato.lastIndexOf("/"));
@@ -76,13 +72,8 @@ function atras() {
             var dato = document.getElementById("contRuta").children[0].innerText;
             if(dato == "../proyectos") {
                 ejecutar();
-                document.getElementById("nuevaCBut").style.display = "none";
-                document.getElementById("elimCBut").style.display = "none";
                 document.getElementById("atras").style.display = "none";
-                document.getElementById("labelArch").style.display = "none";
-                document.getElementById("cargaArchivos").style.display = "none";
-                document.getElementById("botonCargar").style.display = "none";
-                $("#infoArchivos").empty();
+                //$("#infoArchivos").empty();
             }
         }
     });
@@ -122,7 +113,7 @@ function dropFile(event) {
         p.className = "totalArch";
         info.appendChild(p);
     } else {
-        document.getElementById("botonCargar").style.display = "none";
+
     }
 }
 
@@ -147,7 +138,7 @@ function selArchivos(files) {
         p.className = "totalArch";
         info.appendChild(p);
     } else {
-        document.getElementById("botonCargar").style.display = "none";
+
     }
 }
 
@@ -193,4 +184,26 @@ function cargarArch() {
             console.log(datos);
         }
     });*/
+}
+
+function crearAtras() {
+    var card = document.getElementById("card");
+    var divAtras = document.createElement("div");
+    var arrow = document.createElement("i");
+    divAtras.id = "atras";
+    divAtras.setAttribute("onclick", "atras()");
+    arrow.id = "fontAtras"
+    arrow.classList.add("material-icons");
+    arrow.classList.add("md-48");
+    arrow.innerText = "arrow_back";
+    if(!document.getElementById("atras")) {
+        card.insertBefore(divAtras, card.children[1]);
+        divAtras.appendChild(arrow);
+    }
+}
+
+function elimAtras() {
+    if(document.getElementById("atras")) {
+        document.getElementById("card").removeChild(document.getElementById("atras"));
+    }
 }

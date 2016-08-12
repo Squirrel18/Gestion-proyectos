@@ -17,7 +17,7 @@
         </div>
         <div id="card">
             <i class="material-icons md-48" id="fontFindP">search</i>
-            <div id="atras" onclick="atras()"><i class="material-icons md-48" id="fontAtras">arrow_back</i></div>
+            <!--<div id="atras" onclick="atras()"><i class="material-icons md-48" id="fontAtras">arrow_back</i></div>-->
             <p id="textFindP">Buscar proyecto</p>
             <input type="search" id="buscar" oninput="ejecutar()" placeholder="Buscar">
             <section id="contRuta"></section>

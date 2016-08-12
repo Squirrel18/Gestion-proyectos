@@ -201,7 +201,6 @@
     border-radius: 3px;
     color: #09556C;
     font-size: 22px;
-    display: none;
 }   
 
 #cargaArchivos > p {
@@ -245,7 +244,6 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
-    display: none;
 }
 
 #nuevaCBut:hover {
@@ -268,7 +266,6 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
-    display: none;
 }
 
 #elimCBut:hover {
@@ -307,7 +304,6 @@
                      border 0.5s ease-in-out;
     transition: box-shadow 0.2s ease-in-out,
                 border 0.5s ease-in-out;
-    display: none;
 }
 
 #fileElem + label > p {
@@ -338,7 +334,6 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
-    display: none;
 }
 
 #botonCargar:hover {
@@ -353,7 +348,7 @@
 
 #contRuta {
     position: absolute;
-    top: 18%;
+    top: 19%;
     left: 90px;
     width: 700px;
     height: 20px;
@@ -366,7 +361,7 @@
 
 #atras {
     position: absolute;
-    top: 16%;
+    top: 17%;
     left: 3%;
     width: 45px;
     height: 45px;
