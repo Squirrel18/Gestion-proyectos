@@ -71,7 +71,9 @@
                             $ruta = false;
                         }
                         $folders = utf8_encode($folders);
-                        echo "<i class='material-icons md-48 fontFile'>insert_drive_file</i><p class='listaFile'>$folders</p>";
+                        $pathTemp = utf8_encode($direc->path);
+                        $archivo = $pathTemp."/".$folders;
+                        echo "<i class='material-icons md-48 fontFile'>insert_drive_file</i><a class='listaFile' download href='$archivo'>$folders</a>";
                     }
                 }
             }

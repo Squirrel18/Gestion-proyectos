@@ -1,5 +1,4 @@
 function ejecutar() {
-    crearAtras();
     var buscar = document.getElementById("buscar");
     var conten = document.getElementById("contenedor");
     var parametros = {datoBus: buscar.value};
@@ -13,9 +12,15 @@ function ejecutar() {
             dataType: "html",
             data: parametros,
             success: function(datos) {
-                document.getElementById("atras").style.display = "none";
+                elimAtras();
                 document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
                 conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
+                document.getElementById("nuevaCBut").style.display = "none";
+                document.getElementById("elimCBut").style.display = "none";
+                document.getElementById("labelArch").style.display = "none";
+                document.getElementById("botonCargar").style.display = "none";
+                document.getElementById("infoArchivos").style.display = "none";
+                document.getElementById("cargaArchivos").style.display = "none";
                 //conten.innerHTML = datos;
             }
         });
@@ -46,15 +51,22 @@ function cambiarDir(dato) {
         dataType: "html",
         data: parametros,
         success: function(datos) {
-            document.getElementById("atras").style.display = "block";
+            crearAtras();
             document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
             conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
+            document.getElementById("nuevaCBut").style.display = "block";
+            document.getElementById("elimCBut").style.display = "block";
+            document.getElementById("labelArch").style.display = "block";
+            document.getElementById("cargaArchivos").style.display = "block";
+            if(document.getElementById("fileElem").files.length > 0) {
+                document.getElementById("botonCargar").style.display = "block";
+                document.getElementById("infoArchivos").style.display = "block";
+            }
         }
     });
 }
 
 function atras() {
-
     var conten = document.getElementById("contenedor");
     var dato = document.getElementById("contRuta").children[0].innerText;
     var lastDir = dato.substring(0, dato.lastIndexOf("/"));
@@ -72,7 +84,12 @@ function atras() {
             var dato = document.getElementById("contRuta").children[0].innerText;
             if(dato == "../proyectos") {
                 ejecutar();
-                document.getElementById("atras").style.display = "none";
+                elimAtras();
+                document.getElementById("nuevaCBut").style.display = "none";
+                document.getElementById("elimCBut").style.display = "none";
+                document.getElementById("labelArch").style.display = "none";
+                document.getElementById("infoArchivos").style.display = "none";
+                document.getElementById("cargaArchivos").style.display = "none";
                 //$("#infoArchivos").empty();
             }
         }
@@ -82,49 +99,27 @@ function atras() {
 function dragOver(event) {
     event.preventDefault();
     event.target.style.background = "rgba(9,85,108,0.20)";
-    if(event.target.children[0]) {
-        event.target.children[0].innerText = "Soltar archivos";
-    }
+    event.target.innerText = "Soltar archivos";
 }
 
 function dropFile(event) {
-
     event.preventDefault();
-    event.target.style.background = "#0F0";
+    event.target.style.background = "#FFF";
+    event.target.innerText = "Arrastre los archivos aquí.";
     var inputFile = document.getElementById("fileElem");
     inputFile.files = event.dataTransfer.files;
-
-    var num = 0;
-    var info = document.getElementById("infoArchivos");
-    $("#infoArchivos").empty();
-
-    if(inputFile.files.length > 0) {
-        document.getElementById("botonCargar").style.display = "block";
-        for(var i = 0; i < inputFile.files.length; i++) {
-            var p = document.createElement("p");
-            p.innerHTML = "Nombre: " + inputFile.files[i]["name"] + "<br>Tamaño: " + convertByte(inputFile.files[i]["size"]);
-            info.appendChild(p);
-            num = num + inputFile.files[i]["size"];
-        }
-
-        var total = convertByte(num);
-        var p = document.createElement("p");
-        p.innerHTML = "Tamaño total: " + total;
-        p.className = "totalArch";
-        info.appendChild(p);
-    } else {
-
-    }
 }
 
 function selArchivos(files) {
 
     var num = 0;
     var info = document.getElementById("infoArchivos");
+    document.getElementById("botonCargar").style.display = "none";
     $("#infoArchivos").empty();
 
     if(files.length > 0) {
         document.getElementById("botonCargar").style.display = "block";
+        document.getElementById("infoArchivos").style.display = "block";
         for(var i = 0; i < files.length; i++) {
             var p = document.createElement("p");
             p.innerHTML = "<b>Nombre: </b>" + files[i]["name"] + "<br><b>Tamaño: </b>" + convertByte(files[i]["size"]);
@@ -166,24 +161,28 @@ function cargarArch() {
     //var datoPath = document.getElementById("contRuta").children[0].innerText;
     //document.getElementById("pathCont").value = datoPath;
     if(document.getElementById("contRuta").children[0]) {
-        alert(document.getElementById("contRuta").children[0].innerText);
+        document.getElementById("pathCont").value = document.getElementById("contRuta").children[0].innerText;
+        var parametros = new FormData(document.getElementById("formulario"));
+
+        $.ajax({
+            url: '../php/admFiles.php',
+            type: 'POST',
+            contentType: false,
+            data: parametros,
+            processData: false,
+            cache: false,
+            success: function(datos) {
+                if(datos) {
+                    alert("Archivos cargados correctamente");
+                } else {
+                    alert("Error");
+                }
+            }
+        });
+
     } else {
         alert("no está");
     }
-    var parametros = new FormData(document.getElementById("formulario"));
-    console.log(parametros);
-
-    /*$.ajax({
-        url: '../admFiles.php',
-        type: 'POST',
-        contentType: false,
-        data: parametros,
-        processData: false,
-        cache: false,
-        success: function(datos) {
-            console.log(datos);
-        }
-    });*/
 }
 
 function crearAtras() {

@@ -53,8 +53,14 @@
     font-family: 'Roboto-Regular';
     font-size: 24px;
     color: #696969;
-    cursor: pointer;
     overflow: hidden;
+    /*cursor: url(../assets/ic_file_download_black_24px.svg), auto;*/
+    cursor: pointer;
+    display: block;
+}
+
+.listaFile:hover {
+    background: rgba(105,105,105,0.30);
 }
 
 .fontFolder {
@@ -200,16 +206,12 @@
     border: solid 1px #09556C;
     border-radius: 3px;
     color: #09556C;
-    font-size: 22px;
+    display: none;
 }   
 
-#cargaArchivos > p {
-    width: 220px;
-    margin-top: 35px;
-    background: rgba(255,255,255, 0) !important;
-    font-size: 16px;
-    margin: 40px auto auto auto;
-    z-index: -5;
+.cargaArchivos:nth-child(1) {
+    font-size: 20px;
+    line-height: 100px;
 }
 
 #infoArchivos {
@@ -221,6 +223,7 @@
     text-align: left;
     color: #09556C;
     overflow: auto;
+    display: none;
 }
 
 #infoArchivos > p {
@@ -244,6 +247,7 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
+    display: none;
 }
 
 #nuevaCBut:hover {
@@ -266,6 +270,7 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
+    display: none;
 }
 
 #elimCBut:hover {
@@ -304,6 +309,7 @@
                      border 0.5s ease-in-out;
     transition: box-shadow 0.2s ease-in-out,
                 border 0.5s ease-in-out;
+    display: none;
 }
 
 #fileElem + label > p {
@@ -334,6 +340,7 @@
     color: #fff;
     background: #09556C;
     border-radius: 2px;
+    display: none;
 }
 
 #botonCargar:hover {
@@ -369,7 +376,6 @@
     cursor: pointer;
     text-align: center;
     border-radius: 50%;
-    display: none;
 }
 
 #fontAtras {
