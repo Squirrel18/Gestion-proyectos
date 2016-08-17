@@ -14,6 +14,16 @@
         $folder = verifDatos($_POST["folderId"]);
         $directorio->setDir($folder);
     }
+
+    if(isset($_POST["pathNewF"]) && isset($_POST["nameFolder"])) {
+        $_POST["nameFolder"] = utf8_decode($_POST["nameFolder"]);
+        $_POST["pathNewF"] = utf8_decode($_POST["pathNewF"]);
+        if(mkdir($_POST["pathNewF"]."/".$_POST["nameFolder"], 0700)) {
+            echo true;
+        } else {
+            echo false;
+        }
+    }
     
     /**
      *Clase directorios

@@ -208,13 +208,13 @@ function validar() {
     console.log(contenedor);
 
     if(patt2.test(nombre.value) || patt3.test(nombre.value)) {
-        crearError("Únicamente caracteres alfabéticos", "errorNombre", "card");
+        crearError("Únicamente carácteres alfabéticos", "errorNombre", "card");
         nombre.style.borderColor = "#B71C1C";
         return false;
     }
 
     if(patt1.test(key.value) || patt3.test(key.value)) {
-        crearError("Sin espacios y caracteres especiales", "errorPass", "card");
+        crearError("Sin espacios y carácteres especiales", "errorPass", "card");
         key.style.borderColor = "#B71C1C";
         return false;
     }

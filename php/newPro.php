@@ -2,6 +2,7 @@
     require 'folder.php';
     $jsonDeco = json_decode($json);
     echo "<br>";
+    $realizado;
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $contenPer = array();
@@ -17,22 +18,25 @@
         $nombre = verifDatos($_POST["nombre"]);
         $numero = verifDatos($_POST["numero"]);
         $descri = verifDatos($_POST["descripcion"]);
-    }
-
-    if(isset($nombre) || isset($numero) || isset($descri)) {
-        compruebaPro($numero);
-    } else {
-        header('Location: ../index.php?error=0');
+        if(isset($nombre) || isset($numero) || isset($descri)) {
+            compruebaPro($numero);
+        } else {
+            header('Location: ../pages/nuevProye.php');
+        }
+        if($realizado) {
+            header('Location: ../pages/nuevProye.php');
+        }
     }
 
     function compruebaPro($num) {
-        global $nombre, $numero, $descri;
+        global $nombre, $numero, $descri, $realizado;
         require 'conexion.php';
 
         $sql = "SELECT numero FROM proyectos WHERE numero='".$num."'";
         $resultado = $conexion->query($sql);
         if ($resultado->num_rows > 0) {
             header('Location: ../pages/nuevProye.php');
+            $realizado = false;
         } else {
             creaPro($nombre, $numero, $descri);
         }
@@ -40,7 +44,7 @@
 
     function creaPro($name, $num, $des) {
         require 'conexion.php';
-        global $contenPer;
+        global $contenPer, $realizado;
         $nombres = array();
 
         if(!$conexion->set_charset("utf8")) {
@@ -64,7 +68,7 @@
         for($vari = 0; $vari < count($contenPer); $vari++) {
             mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num)."/".utf8_decode($contenPer[$vari]), 0700);
         }
-
+        $realizado = true;
         $conexion->close();
     }
 ?>

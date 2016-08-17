@@ -16,7 +16,6 @@ function ejecutar() {
                 document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
                 conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
                 document.getElementById("nuevaCBut").style.display = "none";
-                document.getElementById("elimCBut").style.display = "none";
                 document.getElementById("labelArch").style.display = "none";
                 document.getElementById("botonCargar").style.display = "none";
                 document.getElementById("infoArchivos").style.display = "none";
@@ -55,7 +54,6 @@ function cambiarDir(dato) {
             document.getElementById("contRuta").innerHTML = datos.substring(0, datos.indexOf("</p>") + 4);
             conten.innerHTML = datos.substring(datos.indexOf("</p>") + 4, datos.length);
             document.getElementById("nuevaCBut").style.display = "block";
-            document.getElementById("elimCBut").style.display = "block";
             document.getElementById("labelArch").style.display = "block";
             document.getElementById("cargaArchivos").style.display = "block";
             if(document.getElementById("fileElem").files.length > 0) {
@@ -86,7 +84,6 @@ function atras() {
                 ejecutar();
                 elimAtras();
                 document.getElementById("nuevaCBut").style.display = "none";
-                document.getElementById("elimCBut").style.display = "none";
                 document.getElementById("labelArch").style.display = "none";
                 document.getElementById("infoArchivos").style.display = "none";
                 document.getElementById("cargaArchivos").style.display = "none";
@@ -129,7 +126,7 @@ function selArchivos(files) {
 
         var total = convertByte(num);
         var p = document.createElement("p");
-        p.innerHTML = "Tamaño total: " + total;
+        p.innerHTML = "<b>Tamaño total: </b>" + total;
         p.className = "totalArch";
         info.appendChild(p);
     } else {
@@ -158,8 +155,7 @@ function convertByte(bytes) {
 }
 
 function cargarArch() {
-    //var datoPath = document.getElementById("contRuta").children[0].innerText;
-    //document.getElementById("pathCont").value = datoPath;
+
     if(document.getElementById("contRuta").children[0]) {
         document.getElementById("pathCont").value = document.getElementById("contRuta").children[0].innerText;
         var parametros = new FormData(document.getElementById("formulario"));
@@ -173,9 +169,15 @@ function cargarArch() {
             cache: false,
             success: function(datos) {
                 if(datos) {
-                    alert("Archivos cargados correctamente");
+                    crearError("Archivos cargados correctamente.", "textCorrec", "card");
+                    setTimeout(function () {
+                        eliminarError("card");
+                    }, 2000);
                 } else {
-                    alert("Error");
+                    crearError("Ocurrio un error.", "textErrorArc", "card");
+                    setTimeout(function () {
+                        eliminarError("card");
+                    }, 2000);
                 }
             }
         });
@@ -204,5 +206,118 @@ function crearAtras() {
 function elimAtras() {
     if(document.getElementById("atras")) {
         document.getElementById("card").removeChild(document.getElementById("atras"));
+    }
+}
+
+function makeDialog() {
+    var conten = document.createElement("section");
+    var cover = document.createElement("div");
+    var titulo = document.createElement("p");
+    var inputNom = document.createElement("input");
+    var bCancel = document.createElement("input");
+    var bOk = document.createElement("input");
+
+    conten.id = "dialogName";
+    cover.id = "cover";
+
+    var elements = [conten, cover, titulo, inputNom, bCancel, bOk];
+    var classNames = ['dialog', 'cover', 'tiutloDialog', 'nameCarp', 'btnCan', 'btnOk'];
+    for(var i = 0; i < elements.length; i++) {
+        elements[i].className = classNames[i];
+        switch(i) {
+            case 2:
+                elements[i].innerText = "Nueva carpeta";
+                break;
+            case 3:
+                elements[i].type = "text";
+                elements[i].id = "nameFolder";
+                elements[i].placeholder = "Nombre de la carpeta";
+                elements[i].setAttribute("maxlength", "40");
+                elements[i].setAttribute("oninput", "eliminarError('dialogName')");
+                break;
+            case 4:
+                elements[i].type = "button";
+                elements[i].value = "Cancelar";
+                elements[i].setAttribute("onclick", "cancelDia()");
+                break;
+            case 5:
+                elements[i].type = "button"; 
+                elements[i].value = "Listo";
+                elements[i].setAttribute("onclick", "crearCarp()");
+                break;
+            default:
+                break; 
+        }
+    }
+
+    document.body.appendChild(cover);
+    document.getElementById("card").appendChild(conten);
+    if(document.getElementById("dialogName")) {
+        for(var i = 2; i < elements.length; i++) {
+            document.getElementById("dialogName").appendChild(elements[i]);
+        }
+    }
+}
+
+function cancelDia() {
+    eliminarError('dialogName');
+    document.getElementById("cover").style.animation = "fadeOut 200ms ease-in-out";
+    document.getElementById("cover").style.webkitAnimation = "fadeOut 200ms ease-in-out";
+    document.getElementById("dialogName").style.animation = "fadeOut 200ms ease-in-out";
+    document.getElementById("dialogName").style.webkitAnimation = "fadeOut 200ms ease-in-out";
+
+    document.getElementById("cover").addEventListener("animationEnd", function() {
+        document.body.removeChild(document.getElementById("cover"));
+    });
+    document.getElementById("cover").addEventListener("webkitAnimationEnd", function() {
+        document.body.removeChild(document.getElementById("cover"));
+    });
+    document.getElementById("dialogName").addEventListener("animationEnd", function() {
+        document.getElementById("card").removeChild(document.getElementById("dialogName"));
+    });
+    document.getElementById("dialogName").addEventListener("webkitAnimationEnd", function() {
+        document.getElementById("card").removeChild(document.getElementById("dialogName"));
+    });
+}
+
+function crearCarp() {
+    eliminarError('dialogName');
+    var patt3 = /[`~!@#$%^&*()°¬|+\=?;:'",.<>\{\}\[\]\\\/]/gi;
+    var inputName = document.getElementById("nameFolder");
+
+    if(!inputName.value == "") {
+        if(!patt3.test(inputName.value)) {
+            if(document.getElementById("contRuta").children[0]) {
+                var dato = document.getElementById("contRuta").children[0].innerText;
+                var parametros = {pathNewF: dato, nameFolder: inputName.value};
+                
+                $.ajax({
+                    method: "POST",
+                    //content type el tipo de dato que se está enviando
+                    url: "../php/admFolder.php",
+                    //datatype es el tipo de dato que se espera
+                    dataType: "text",
+                    data: parametros,
+                    success: function(datos) {
+                        if(datos) {
+                            cancelDia();
+                            crearError("Carpeta creada correctamente.", "textCorrec", "card");
+                            setTimeout(function () {
+                                eliminarError("card");
+                            }, 3000);
+                        } else {
+                            crearError("Error al crear carpeta.", "textErrorArc", "card");
+                            setTimeout(function () {
+                                eliminarError("card");
+                            }, 3000);
+                        } 
+                    }
+                });
+            }
+        } else {
+            crearError("Sin carácteres especiales", "textCarac", "dialogName");
+        }
+    } else {
+        crearError("Campo vacío", "textVac", "dialogName");
     }
 }

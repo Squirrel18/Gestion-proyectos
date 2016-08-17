@@ -31,8 +31,7 @@
                     <input type="button" id="botonCargar" onclick="cargarArch()" value="Cargar">
                 </form>
                 <div id="infoArchivos"></div>
-                <input id="nuevaCBut" type="button" value="Nueva carpeta">
-                <input id="elimCBut" type="button" value="Eliminar carpeta">
+                <input id="nuevaCBut" type="button" onclick="makeDialog()" value="Nueva carpeta">
             </div>
         </div>
     </body>
