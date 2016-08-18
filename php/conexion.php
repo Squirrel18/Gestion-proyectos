@@ -5,4 +5,5 @@
     $dataB = "my_firtsdb";
 
     $conexion = new mysqli($servername, $username, $password, $dataB);
+    
 ?>

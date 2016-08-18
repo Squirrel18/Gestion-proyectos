@@ -1,8 +1,12 @@
+<?php
+    require_once '../php/session.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
+        <script src="../js/javaData.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
         <script src="../js/javaFindP.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">

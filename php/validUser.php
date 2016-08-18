@@ -1,11 +1,14 @@
 <?php
-    session_start();
     require 'verifData.php';
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $usuario = verifDatos($_POST["user"]);
         $pass = verifDatos($_POST["key"]);
+
+        require_once '../php/session.php';
+        $obj = new sesion();
+        $obj->setSession($usuario);
     }
     
     if(isset($usuario) || isset($pass)) {
@@ -28,8 +31,6 @@
             //$stmt->bind_result($resultado);
             if($stmt->fetch()) {
                 header('Location: ../pages/admin.php');
-                $_SESSION["favcolor"] = "green";
-                $_SESSION["favanimal"] = "cat";
             } else {
                 header('Location: ../index.php?error=1');
             }

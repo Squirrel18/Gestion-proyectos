@@ -5,7 +5,7 @@ function crearError(texto, nomClase, contenedor) {
     if(!document.getElementById("textoError")) {
         var p = document.createElement("p");
         p.id = "textoError";
-        p.classList = nomClase;
+        p.className = nomClase;
         p.innerText = texto;
         document.getElementById(contenedor).appendChild(p);
     } 

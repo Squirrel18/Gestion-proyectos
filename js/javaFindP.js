@@ -219,6 +219,7 @@ function makeDialog() {
 
     conten.id = "dialogName";
     cover.id = "cover";
+    cover.setAttribute("onclick", "cancelDia()");
 
     var elements = [conten, cover, titulo, inputNom, bCancel, bOk];
     var classNames = ['dialog', 'cover', 'tiutloDialog', 'nameCarp', 'btnCan', 'btnOk'];
@@ -257,10 +258,10 @@ function makeDialog() {
             document.getElementById("dialogName").appendChild(elements[i]);
         }
     }
+    console.log("creo el dialog");
 }
 
 function cancelDia() {
-    eliminarError('dialogName');
     document.getElementById("cover").style.animation = "fadeOut 200ms ease-in-out";
     document.getElementById("cover").style.webkitAnimation = "fadeOut 200ms ease-in-out";
     document.getElementById("dialogName").style.animation = "fadeOut 200ms ease-in-out";

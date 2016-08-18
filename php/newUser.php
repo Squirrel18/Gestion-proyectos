@@ -23,7 +23,7 @@
         $estado = '1';
         insertDatos($name, $numero, $contra, $rol, $estado);
         if($realizado) {
-            header('Location: ../pages/nuevUsua.php');
+            //header('Location: ../pages/nuevUsua.php');
         } else {
             echo "Ocurrio un error";
         }

@@ -166,6 +166,20 @@ input::-moz-placeholder {
     font-size: 20px;
 }
 
+input:-ms-input-placeholder {
+    color: #09556C;
+    opacity: 0.54;
+    font-family: 'Roboto-Regular';
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: #09556C;
+    opacity: 0.54;
+    font-family: 'Roboto-Regular';
+    font-size: 20px;
+}
+
 #account {
     position: relative;
     text-align: right;
