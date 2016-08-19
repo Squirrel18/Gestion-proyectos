@@ -1,7 +1,14 @@
 <?php
-    session_start();
-    /*echo $_SESSION["favcolor"]."</br>";
-    echo $_SESSION["favanimal"];*/
+    require_once '../php/session.php';
+    $obj = new sesion();
+
+    if(!$obj->getSession()) {
+        //echo "usuario desconocido";
+        header('Location: ../');
+    } else {
+        $nombre = obtenNamePag($_SERVER['PHP_SELF']);
+        $obj->pagPermitida($nombre);
+    }
 ?>
 <!DOCTYPE html>
 <html>

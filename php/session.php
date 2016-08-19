@@ -27,19 +27,34 @@
         }
 
         public function getSession() {
-            if($this->consultId($_SESSION['us'])) {
-                return $_SESSION['us'];
+            if(isset($_SESSION['us'])) {
+                if($this->consultId($_SESSION['us'])) {
+                    $sessions = array();
+                    $sessions[0] = $_SESSION['us'];
+                    $permi = $_SESSION['per'];
+                    for($i = 0; $i < count($permi); $i++) {
+                        $sessions[$i + 1] = $permi[$i]["idPermiso"];
+                    }
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
-                return "usuario desconocido";
+                return false;
             }
+            
         }
 
         public function setSession($id) {
             $_SESSION['us'] = $id;
+            $_SESSION['per'] = $this->getPermi();
         }
 
-        public function setPermi($per) {
-            $_SESSION['per'] = $per;
+        public function getId() {
+            return $_SESSION['us'];
+        }
+
+        public function getPer() {
             return $_SESSION['per'];
         }
 
@@ -67,7 +82,7 @@
             if($conexion->connect_error) {
                 die("Connection failed: " . $conexion->connect_error);
             }
-            $numero = $this->getSession();
+            $numero = $this->getId();
             if($stmt = $conexion->prepare("SELECT nombre, rol FROM usuarios WHERE estado='1' AND numero=?")) {
                 $stmt->bind_param("s", $numero);
                 $stmt->execute();
@@ -85,12 +100,12 @@
             $conexion->close();
         }
 
-        public function getPermi() {
+        private function getPermi() {
             require 'conexion.php';
             if($conexion->connect_error) {
                 die("Connection failed: " . $conexion->connect_error);
             }
-            $sql = "SELECT idPermiso FROM usupermisos INNER JOIN usuarios ON usupermisos.idUsuario=usuarios.Id WHERE usuarios.numero='".$this->getSession()."'";
+            $sql = "SELECT idPermiso FROM usupermisos INNER JOIN usuarios ON usupermisos.idUsuario=usuarios.Id WHERE usuarios.numero='".$this->getId()."'";
             $result = $conexion->query($sql);
             $cont = array();
             $itera = 0;
@@ -103,7 +118,63 @@
             } else {
                 echo "false";
             }
+            $conexion->close();
+        }
+
+        private function compruebaPer($namePag) {
+            require 'verifData.php';
+            require 'conexion.php';
+
+            $namePag = verifDatos($namePag);
+            $namePag = strtolower($namePag);
+
+            $dataPermiso = $this->getPer();
+            if($conexion->connect_error) {
+                die("Connection failed: " . $conexion->connect_error);
+            }
+
+            $conten = array();
+            $var1 = 0;
+
+            for($i = 0; $i < count($dataPermiso); $i++) {
+                if($stmt = $conexion->prepare("SELECT Pagina FROM paginas INNER JOIN relacion_pag ON relacion_pag.idPagina=paginas.id WHERE relacion_pag.idPermiso=?")) {
+                    $stmt->bind_param("s", $dataPermiso[$i]["idPermiso"]);
+                    $stmt->execute();
+                    $resultado = $stmt->get_result();
+                    while($fila = $resultado->fetch_array(MYSQLI_ASSOC)) {
+                        $conten[$var1] = $fila;
+                        $var1++;
+                    }
+                    $stmt->close();
+                }
+            }
+            $conexion->close();
+            return $conten;
         } 
+
+        public function pagPermitida($data) {
+            $permiso;
+            $data = strtolower($data);
+            $cont = $this->compruebaPer($data);
+            for($i = 0; $i < count($cont); $i++) {
+                if($cont[$i]["Pagina"] != $data) {
+                    $permiso = false;
+                } else {
+                    $permiso = true;
+                    break;
+                }
+            }
+            if(!$permiso) {
+                header('Location: ../');
+            }
+        }
     }
 
+    function obtenNamePag($data) {
+        $ultimoSl = strripos($data, "/");
+        $nombreTotal = substr($data, $ultimoSl + 1, strlen($data));
+        $punto = strripos($nombreTotal, ".");
+        $nombreInte = substr($nombreTotal, 0, $punto);
+        return $nombreInte;
+    }
 ?>

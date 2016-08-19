@@ -108,7 +108,8 @@ function verificaURL() {
             }
         }
     } else {
-        //alert("No contiene número");
+        alert("URL no valida");
+        window.location.assign("../pages/buscarUsua.php");
     }   
 }
 

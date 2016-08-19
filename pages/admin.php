@@ -2,15 +2,13 @@
     require_once '../php/session.php';
     $obj = new sesion();
 
-    echo $obj->getSession();
-    echo "<br>";
-    $cont = array();
-    $itera = 0;
-
-    $cont = $obj->getPermi();
-    for($i = 0; $i < count($cont); $i++) {
-        echo $cont[$i]["idPermiso"]."<br>";
+    if(!$obj->getSession()) {
+        //echo "usuario desconocido";
+        header('Location: ../');
+    } else {
+        $nombre = obtenNamePag($_SERVER['PHP_SELF']);
+        #PASAR ESTAS DOS FUNCIONES A PRIVADAS
+        echo $obj->getId();
+        print_r($obj->getPer());
     }
-    //$obj->setPermi($cont);
-    //print_r($obj->getPermi());
 ?>

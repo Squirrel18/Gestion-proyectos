@@ -61,11 +61,11 @@
             $stmt->close();
         }
 
-        if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=".$updateId."") === TRUE) {
+        /*if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=".$updateId."") === TRUE) {
             echo "Record deleted successfully";
         } else {
             $realizado = false;
-        }
+        }*/
 
         for($vari = 0; $vari < count($contenPer); $vari++) {
             $sql = "INSERT INTO usupermisos(idUsuario, idPermiso) VALUES(".$updateId.", ".$contenPer[$vari].")";

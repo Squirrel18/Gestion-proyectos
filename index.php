@@ -1,5 +1,8 @@
 <?php
-
+    require_once 'php/session.php';
+    $obj = new sesion();
+    session_unset();
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html>
