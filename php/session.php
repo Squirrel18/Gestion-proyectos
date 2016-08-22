@@ -29,12 +29,12 @@
         public function getSession() {
             if(isset($_SESSION['us'])) {
                 if($this->consultId($_SESSION['us'])) {
-                    $sessions = array();
+                    /*$sessions = array();
                     $sessions[0] = $_SESSION['us'];
                     $permi = $_SESSION['per'];
                     for($i = 0; $i < count($permi); $i++) {
                         $sessions[$i + 1] = $permi[$i]["idPermiso"];
-                    }
+                    }*/
                     return true;
                 } else {
                     return false;

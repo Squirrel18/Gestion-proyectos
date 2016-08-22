@@ -6,8 +6,6 @@ $(document).ready(function() {
     errorUrl();
 });
 
-var validaUser = false;
-
 function validUser(dato) {
     var parametros = {usuario: dato};
     var patt = /[a-z]/gi;
@@ -35,8 +33,6 @@ function validUser(dato) {
                     animSvg(0, 50, 50);
                     coverDisabled(false);
                     habilitaCam(false);
-                    validaUser = true;
-                    return validaUser;
                 } else {
                     document.getElementById("contrasena").value = "";
                     animSvg(70, 0, 0);

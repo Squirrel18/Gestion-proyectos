@@ -1,0 +1,124 @@
+#card {
+    position: relative;
+    margin: auto auto 50px auto;
+    left: 0;
+    top: 25px;
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    padding: 0;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+#fontAssig {
+    font-size: 96px;
+    position: relative; 
+    top: 10px;
+    color: #09556C;
+    margin: auto;
+}
+
+#busProOnly {
+    position: relative;
+    top: 150px;
+    width: 250px;
+    height: 50px;
+    margin: auto;
+    color: #09556C;
+    background: #fff;
+    border-radius: 2px;
+}
+
+#busProOnly:hover {
+    border: solid #09556C 1px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#busProOnly:active {
+    color: #fff;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    background: #09556C;
+}
+
+#cardLeft {
+    position: relative;
+    margin: auto auto 50px auto;
+    left: -23%;
+    top: 25px;
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    padding: 0;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+#cardRight {
+    position: relative;
+    margin: auto auto 50px auto;
+    left: 23%;
+    top: -625px;
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    padding: 0;
+    border-radius: 7px;
+    text-align: center;
+    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+.fontUser {
+    font-size: 96px;
+    position: relative; 
+    top: 10px;
+    color: #09556C;
+    margin: auto;
+}
+
+#newUser, #editUser {
+    position: relative;
+    top: 120px;
+    width: 250px;
+    height: 50px;
+    margin: auto auto 70px auto;
+    color: #09556C;
+    background: #fff;
+    border-radius: 2px;
+}
+
+#newUser:hover, #editUser:hover {
+    border: solid #09556C 1px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#newUser:active, #editUser:active {
+    color: #fff;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    background: #09556C;
+}
+
+#newPro, #busPro {
+    position: relative;
+    top: 120px;
+    width: 260px;
+    height: 50px;
+    margin: auto auto 70px auto;
+    color: #09556C;
+    background: #fff;
+    border-radius: 2px;
+}
+
+#newPro:hover, #busPro:hover {
+    border: solid #09556C 1px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#newPro:active, #busPro:active {
+    color: #fff;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    background: #09556C;
+}
