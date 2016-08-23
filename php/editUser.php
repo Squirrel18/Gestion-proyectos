@@ -20,12 +20,8 @@
         $contra = $_POST["pass"];
         $rol = $_POST["rol"];
         $estado = '1';
+        
         updateDatos($name, $numero, $contra, $rol, $estado);
-        if($realizado) {
-            header('Location: ../pages/buscarUsua.php');
-        } else {
-            echo "Ocurrio un error";
-        }
     }
 
     function updateDatos($nom, $num, $pass, $rol, $esta) {
@@ -61,22 +57,25 @@
             $stmt->close();
         }
 
-        /*if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=".$updateId."") === TRUE) {
-            echo "Record deleted successfully";
-        } else {
-            $realizado = false;
-        }*/
-
-        for($vari = 0; $vari < count($contenPer); $vari++) {
-            $sql = "INSERT INTO usupermisos(idUsuario, idPermiso) VALUES(".$updateId.", ".$contenPer[$vari].")";
-            if ($conexion->query($sql) === TRUE) {
-                //echo "New record created successfully";
+        for($i = 0; $i < count($contenPer); $i++) {
+            echo $contenPer[$i];
+            /*if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=$updateId AND idPermiso!=$contenPer[$i]") === TRUE) {
+                echo "Record deleted successfully";
             } else {
-                $realizado = false;
-            }
+                echo "NO elimino";
+            }*/
         }
+
+        /*for($i = 0; $i < count($contenPer); $i++) {
+            if($stmt = $conexion->prepare("INSERT INTO usupermisos(idUsuario, idPermiso) SELECT * FROM (SELECT $updateId, $contenPer[$i]) AS tmp WHERE NOT EXISTS (SELECT * FROM usupermisos WHERE idUsuario=? AND idPermiso=?) LIMIT 1")) {
+                $stmt->bind_param("ii", $updateId, $contenPer[$i]);
+                $stmt->execute();
+            } else {
+                echo "no realizo el insert";
+            }
+            $stmt->close();
+        }*/
         $conexion->close();
         $realizado = true;
-        return $realizado;
     }
 ?>

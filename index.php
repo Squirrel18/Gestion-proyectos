@@ -1,8 +1,10 @@
 <?php
     require_once 'php/session.php';
     $obj = new sesion();
+    print_r($obj->getPer());
     session_unset();
     session_destroy();
+    print_r($obj->getPer());
 ?>
 <!DOCTYPE html>
 <html>

@@ -13,3 +13,25 @@ $(document).ready(function(){
         }
     });
 });
+
+function btnAccount() {
+    var cerrar = document.createElement("a");
+    cerrar.id = "btnClose";
+    cerrar.innerText = "Cerrar Sesión";
+    cerrar.href = "../";
+    if(!document.getElementById("btnClose")) {
+        document.getElementById("account").appendChild(cerrar);
+        document.body.addEventListener("click", function() {
+            elimBtn();
+        });
+    }
+    
+}
+
+function elimBtn() {
+
+    if(document.getElementById("btnClose")) {
+        document.getElementById("account").removeChild(document.getElementById("btnClose"));
+        document.body.removeEventListener("click", function() { });
+    }
+}

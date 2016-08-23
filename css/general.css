@@ -192,6 +192,7 @@ input::placeholder {
     font-size: 108px;
     left: -20px;
     color: #09556C;
+    cursor: pointer;
 }
 
 #textUser {
