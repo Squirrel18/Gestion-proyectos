@@ -30,7 +30,7 @@
      */
     class directorios {
 
-        private static $dirPrincipal;
+        private $dirPrincipal;
         //public $rutaDir;
         protected $directorio;
         private $folders;

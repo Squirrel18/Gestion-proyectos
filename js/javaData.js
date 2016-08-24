@@ -12,6 +12,9 @@ $(document).ready(function(){
             }
         }
     });
+    document.getElementById("fontAccount").addEventListener("mouseover", function() {
+        btnAccount();
+    });
 });
 
 function btnAccount() {

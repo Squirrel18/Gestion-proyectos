@@ -57,16 +57,13 @@
             $stmt->close();
         }
 
-        for($i = 0; $i < count($contenPer); $i++) {
-            echo $contenPer[$i];
-            /*if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=$updateId AND idPermiso!=$contenPer[$i]") === TRUE) {
-                echo "Record deleted successfully";
-            } else {
-                echo "NO elimino";
-            }*/
+        if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=$updateId") === TRUE) {
+            echo "Record deleted successfully";
+        } else {
+            echo "NO elimino";
         }
 
-        /*for($i = 0; $i < count($contenPer); $i++) {
+        for($i = 0; $i < count($contenPer); $i++) {
             if($stmt = $conexion->prepare("INSERT INTO usupermisos(idUsuario, idPermiso) SELECT * FROM (SELECT $updateId, $contenPer[$i]) AS tmp WHERE NOT EXISTS (SELECT * FROM usupermisos WHERE idUsuario=? AND idPermiso=?) LIMIT 1")) {
                 $stmt->bind_param("ii", $updateId, $contenPer[$i]);
                 $stmt->execute();
@@ -74,7 +71,7 @@
                 echo "no realizo el insert";
             }
             $stmt->close();
-        }*/
+        }
         $conexion->close();
         $realizado = true;
     }

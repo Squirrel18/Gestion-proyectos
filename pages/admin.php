@@ -26,7 +26,7 @@
     </head>
     <body>
         <div id="account">
-            <i class="material-icons md-48" onmouseover="btnAccount()" id="fontAccount">account_circle</i>
+            <i class="material-icons md-48" id="fontAccount">account_circle</i>
             <p id="textUser">Nombre de usuario</p>
             <p id="textRol">Sistemas</p>
         </div>

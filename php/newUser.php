@@ -3,7 +3,6 @@
     require 'permit.php';
     $jsonDeco = json_decode($json);
     echo "<br>";
-    $realizado;
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $contenPer = array();
@@ -22,19 +21,13 @@
         $rol = $_POST["rol"];
         $estado = '1';
         insertDatos($name, $numero, $contra, $rol, $estado);
-        if($realizado) {
-            //header('Location: ../pages/nuevUsua.php');
-        } else {
-            echo "Ocurrio un error";
-        }
     }
 
     function insertDatos($nom, $num, $pass, $rol, $esta) {
         require 'conexion.php';
-        global $contenPer, $realizado;
+        global $contenPer;
 
         if($conexion->connect_error) {
-            $realizado = false;
             die("Connection failed: " . $conexion->connect_error);
         } 
 
@@ -42,25 +35,30 @@
             die("no selecciono el conjunto de caracteres");
         }
 
-        if($stmt = $conexion->prepare("INSERT INTO usuarios(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
-            $stmt->bind_param("sssss", $nom, $num, $pass, $rol, $esta);
-            $stmt->execute();
-            $ultimoId = $conexion->insert_id;
-            $stmt->close();
+        $sql = "SELECT numero FROM usuarios WHERE numero=$num";
+        $result = $conexion->query($sql);
+        if($result->num_rows > 0) {
+            echo "el usuario ya existe";
         } else {
-            $realizado = false;
-        }
-
-        for($vari = 0; $vari < count($contenPer); $vari++) {
-            $sql = "INSERT INTO usupermisos(idUsuario, idPermiso) VALUES(".$ultimoId.", ".$contenPer[$vari].")";
-            if ($conexion->query($sql) === TRUE) {
-                //echo "New record created successfully";
+            if($stmt = $conexion->prepare("INSERT INTO usuarios(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
+                $stmt->bind_param("sssss", $nom, $num, $pass, $rol, $esta);
+                $stmt->execute();
+                $ultimoId = $conexion->insert_id;
+                $stmt->close();
             } else {
-                $realizado = false;
+                echo "NO creo el usuario";
+            }
+
+            for($vari = 0; $vari < count($contenPer); $vari++) {
+                $sql = "INSERT INTO usupermisos(idUsuario, idPermiso) VALUES(".$ultimoId.", ".$contenPer[$vari].")";
+                if ($conexion->query($sql) === TRUE) {
+                    //echo "New record created successfully";
+                } else {
+                    echo "NO creo los permisos";
+                }
             }
         }
+ 
         $conexion->close();
-        $realizado = true;
-        return $realizado;
     }
 ?>
