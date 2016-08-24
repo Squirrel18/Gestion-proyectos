@@ -38,7 +38,7 @@
         $sql = "SELECT numero FROM usuarios WHERE numero=$num";
         $result = $conexion->query($sql);
         if($result->num_rows > 0) {
-            echo "el usuario ya existe";
+            header('Location: ../pages/nuevUsua.php?msj=0');
         } else {
             if($stmt = $conexion->prepare("INSERT INTO usuarios(nombre, numero, contrasena, rol, estado) VALUES (?, ?, ?, ?, ?)")) {
                 $stmt->bind_param("sssss", $nom, $num, $pass, $rol, $esta);
@@ -46,7 +46,7 @@
                 $ultimoId = $conexion->insert_id;
                 $stmt->close();
             } else {
-                echo "NO creo el usuario";
+                header('Location: ../pages/nuevUsua.php?msj=1');
             }
 
             for($vari = 0; $vari < count($contenPer); $vari++) {
@@ -54,11 +54,11 @@
                 if ($conexion->query($sql) === TRUE) {
                     //echo "New record created successfully";
                 } else {
-                    echo "NO creo los permisos";
+                    header('Location: ../pages/nuevUsua.php?msj=2');
                 }
             }
         }
- 
+        header('Location: ../pages/nuevUsua.php?msj=3');
         $conexion->close();
     }
 ?>

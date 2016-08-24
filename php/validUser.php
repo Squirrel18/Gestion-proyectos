@@ -9,12 +9,7 @@
         require_once '../php/session.php';
         $obj = new sesion();
         $obj->setSession($usuario);
-    }
-    
-    if(isset($usuario) || isset($pass)) {
         comprobarusuario($usuario,$pass);
-    } else {
-        header('Location: ../index.php?error=0');
     }
 
     function cerrar($conexi) {
@@ -32,7 +27,7 @@
             if($stmt->fetch()) {
                 header('Location: ../pages/admin.php');
             } else {
-                header('Location: ../index.php?error=1');
+                header('Location: ../index.php?msj=0');
             }
             $stmt->close();
         }

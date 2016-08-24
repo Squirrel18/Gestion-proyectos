@@ -20,7 +20,7 @@ function validUser(dato) {
         animSvg(70, 0, 0);
         coverDisabled(true);
         habilitaCam(true);
-        crearError("Únicamente números", "error");
+        crearError("Únicamente números", "error", "card");
         document.getElementById("contrasena").value = "";
     } else {
         $.ajax({
@@ -38,27 +38,10 @@ function validUser(dato) {
                     animSvg(70, 0, 0);
                     coverDisabled(true);
                     habilitaCam(true);
-                    crearError("Usuario incorrecto", "error");
+                    crearError("Usuario incorrecto", "error", "card");
                 }
             }
         });
-    }
-}
-
-function crearError(texto, nomClase) {
-     /*
-    Los parametros deben ser el texto y el nombre de la clase con los valores de width, height, padding, posición y el color.
-    */ 
-    var p = document.createElement("p");
-    p.id = "textoError";
-    p.classList = nomClase;
-    p.innerText = texto;
-    document.getElementById("card").appendChild(p);
-}
-
-function eliminarError() {
-    if(document.getElementById("textoError")) {
-        document.getElementById("card").removeChild(document.getElementById("textoError"));
     }
 }
 
@@ -99,24 +82,33 @@ function animSvg(path1, path2, path3) {
     ruta2.style.strokeDashoffset = path3;//50
 }
 
+function validar() {
+    var pass = document.getElementById("contrasena");
+    if(pass.value == "") {
+        crearError("Campo vacío", "error1", "card");
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function errorUrl() {
     var url = document.URL;
     var index = url.indexOf("?");
     var datoUrl = url.substring(index + 1, url.length);
     var div = datoUrl.split("=");
-    if(div[0] == "error") {
-        console.log("entro en error");
+    if(div[0] == "msj") {
         var datoError = parseInt(div[1]);
         switch(datoError) {
             case 0:
-                crearError("Campo vacío", "error1");
+                crearError("Contraseña incorrecta", "error1", "card");
                 break;
-            case 1:
-                crearError("Contraseña incorrecta", "error1");
+            default:
+                window.location.assign("index.php");
                 break;
         }
     } else {
-        //window.location.assign("index.php?" + div[1]);
+        //window.location.assign("index.php?" + div[0]);
     }
     
 }

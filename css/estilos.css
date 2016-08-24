@@ -103,7 +103,7 @@
     position: absolute;
     width: 50px;
     height: 45px;
-    top: 33%;
+    top: 35%;
     left: 85%;
 }
 
@@ -116,7 +116,7 @@
     position: absolute;
     width: 45px;
     height: 45px;
-    top: 33%;
+    top: 35%;
     left: 85%;
     /*display: none;*/
 }
@@ -138,15 +138,6 @@
     height: 60px;
 }
 
-#textoError {
-    position: absolute;
-    margin: 0;
-    text-align: center;
-    font-family: 'Roboto-Medium';
-    font-size: 16px;
-    z-index: 1;
-}
-
 #divDisabled {
     position: relative;
     margin: auto;
@@ -158,21 +149,24 @@
 }
 
 .error {
+    position: absolute;
     width: 200px;
     height: 25px;
     padding-top: 5px;
-    top: 43%;
+    top: 45%;
     left: 30%;
     color: #B71C1C;
 }
 
 .error1 {
+    position: absolute;
     width: 200px;
     height: 25px;
     padding-top: 5px;
-    top: 73%;
+    top: 74%;
     left: 30%;
     color: #B71C1C;
+    z-index: 1;
 }
 
 /*Inicio media queries*/
