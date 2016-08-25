@@ -1,8 +1,8 @@
 #card {
     position: relative;
-    margin: auto auto 50px auto;
+    margin: auto auto 30px auto;
     left: 0;
-    top: 75px;
+    top: 50px;
     width: 600px;
     height: 600px;
     background: #fff;
@@ -10,7 +10,6 @@
     border-radius: 7px;
     text-align: center;
     box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px;
 }
 
 #fontAssig {
@@ -45,7 +44,7 @@
 
 #cardLeft {
     position: relative;
-    margin: auto auto 50px auto;
+    margin: auto auto 30px auto;
     left: -20%;
     top: 75px;
     width: 550px;
@@ -59,9 +58,9 @@
 
 #cardRight {
     position: relative;
-    margin: auto auto 50px auto;
+    margin: auto auto 30px auto;
     left: 21%;
-    top: -525px;
+    top: -505px;
     width: 550px;
     height: 550px;
     background: #fff;
@@ -137,7 +136,7 @@
 
     #cardRight {
         height: 600px;
-        top: 75px;
+        top: -555px;
     }
 
 }

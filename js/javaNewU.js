@@ -109,6 +109,25 @@ function validForm() {
         return true;
     } else {
         return false;
-    }
-    
+    } 
+}
+
+function lectorUrl() {
+    var url = document.URL;
+    var index = url.indexOf("?");
+    var datoUrl = url.substring(index + 1, url.length);
+    var div = datoUrl.split("=");
+    if(div[0] == "msj") {
+        var datoError = parseInt(div[1]);
+        switch(datoError) {
+            case 0:
+                crearError("Contraseña incorrecta", "error1", "card");
+                break;
+            default:
+                window.location.assign("index.php");
+                break;
+        }
+    } else {
+        //window.location.assign("index.php?" + div[0]);
+    } 
 }
