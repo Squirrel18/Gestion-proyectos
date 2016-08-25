@@ -18,11 +18,11 @@
 
     function cargaArch($archivo, $path, $nombre) {
         if (move_uploaded_file($archivo, $path)) {
-            echo "The file ". basename($nombre). " has been uploaded.<br>";
-            //echo true;
+            //echo "The file ". basename($nombre). " has been uploaded.<br>";
+            echo true;
         } else {
-            echo "Sorry, there was an error uploading your file.";
-            //echo false;
+            //echo "Sorry, there was an error uploading your file.";
+            echo false;
         }
     }
 ?>

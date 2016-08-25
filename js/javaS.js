@@ -3,7 +3,7 @@ $(document).ready(function() {
         habilitaCam(true);
         coverDisabled(true);
     }, 50);
-    lectorUrl();
+    errorUrl();
 });
 
 function validUser(dato) {
@@ -92,7 +92,7 @@ function validar() {
     }
 }
 
-function lectorUrl() {
+function errorUrl() {
     var url = document.URL;
     var index = url.indexOf("?");
     var datoUrl = url.substring(index + 1, url.length);
@@ -109,5 +109,6 @@ function lectorUrl() {
         }
     } else {
         //window.location.assign("index.php?" + div[0]);
-    } 
+    }
+    
 }

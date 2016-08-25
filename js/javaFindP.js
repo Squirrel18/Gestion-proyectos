@@ -108,6 +108,7 @@ function dropFile(event) {
 }
 
 function selArchivos(files) {
+
     var num = 0;
     var info = document.getElementById("infoArchivos");
     document.getElementById("botonCargar").style.display = "none";
@@ -154,9 +155,9 @@ function convertByte(bytes) {
 }
 
 function cargarArch() {
+
     if(document.getElementById("contRuta").children[0]) {
         document.getElementById("pathCont").value = document.getElementById("contRuta").children[0].innerText;
-        console.log(document.getElementById("pathCont").value);
         var parametros = new FormData(document.getElementById("formulario"));
 
         $.ajax({
