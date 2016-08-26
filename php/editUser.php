@@ -2,7 +2,6 @@
     require 'permit.php';
     $jsonDeco = json_decode($json);
     echo "<br>";
-    $realizado;
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $contenPer = array();
@@ -29,7 +28,6 @@
         global $contenPer, $realizado;
 
         if($conexion->connect_error) {
-            $realizado = false;
             die("Connection failed: " . $conexion->connect_error);
         } 
 
@@ -42,7 +40,7 @@
             $stmt->execute();
             $stmt->close();
         } else {
-            $realizado = false;
+            header('Location: ../pages/editUsua.php?msj=1');
         }
 
         if($stmt = $conexion->prepare("SELECT id FROM usuarios WHERE estado='1' AND numero=?")) {
@@ -52,23 +50,28 @@
             if($stmt->fetch()) {
                 $updateId = $resultado;
             } else {
-                echo "false";
+                header('Location: ../pages/editUsua.php?numero='.$_POST["numero"].'');
+                echo "general";
             }
             $stmt->close();
         }
 
         if($conexion->query("DELETE FROM usupermisos WHERE idUsuario=$updateId") === TRUE) {
-            echo "Record deleted successfully";
+            //echo "Record deleted successfully";
         } else {
-            echo "NO elimino";
+            header('Location: ../pages/editUsua.php?numero='.$_POST["numero"].'');
+            echo "NO elimino permisos";
         }
 
         for($i = 0; $i < count($contenPer); $i++) {
             if($stmt = $conexion->prepare("INSERT INTO usupermisos(idUsuario, idPermiso) SELECT * FROM (SELECT $updateId, $contenPer[$i]) AS tmp WHERE NOT EXISTS (SELECT * FROM usupermisos WHERE idUsuario=? AND idPermiso=?) LIMIT 1")) {
                 $stmt->bind_param("ii", $updateId, $contenPer[$i]);
                 $stmt->execute();
+                header('Location: ../pages/editUsua.php?numero='.$_POST["numero"].'');
+                echo "realizado";
             } else {
-                echo "no realizo el insert";
+                header('Location: ../pages/editUsua.php?numero='.$_POST["numero"].'');
+                echo "no actualizo permisos";
             }
             $stmt->close();
         }

@@ -53,7 +53,7 @@ function datosCoinci(dato) {
             coinci.classList.add("listaCoin");
             link.classList.add("linkCoinci");
             link.setAttribute("href", "../pages/editUsua.php?numero=" + dato[i].numero);
-            link.setAttribute("target", "_blank");
+            //link.setAttribute("target", "_blank");
             conten.appendChild(link);
             coinci.innerHTML = "<span class='nombre'>" + dato[i].nombre + ".</span> " + dato[i].rol;
             link.appendChild(coinci);

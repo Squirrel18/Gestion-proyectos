@@ -23,9 +23,6 @@
         } else {
             header('Location: ../pages/nuevProye.php');
         }
-        if($realizado) {
-            header('Location: ../pages/nuevProye.php');
-        }
     }
 
     function compruebaPro($num) {
@@ -35,8 +32,7 @@
         $sql = "SELECT numero FROM proyectos WHERE numero='".$num."'";
         $resultado = $conexion->query($sql);
         if ($resultado->num_rows > 0) {
-            header('Location: ../pages/nuevProye.php');
-            $realizado = false;
+            echo "Proyecto con el mismo nombre";
         } else {
             creaPro($nombre, $numero, $descri);
         }
@@ -68,7 +64,7 @@
         for($vari = 0; $vari < count($contenPer); $vari++) {
             mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num)."/".utf8_decode($contenPer[$vari]), 0700);
         }
-        $realizado = true;
+        echo "Proyecto creado";
         $conexion->close();
     }
 ?>

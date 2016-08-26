@@ -3,7 +3,7 @@ $(document).ready(function() {
         habilitaCam(true);
         coverDisabled(true);
     }, 50);
-    errorUrl();
+    lectorUrl();
 });
 
 function validUser(dato) {
@@ -92,14 +92,14 @@ function validar() {
     }
 }
 
-function errorUrl() {
+function lectorUrl() {
     var url = document.URL;
     var index = url.indexOf("?");
     var datoUrl = url.substring(index + 1, url.length);
     var div = datoUrl.split("=");
     if(div[0] == "msj") {
-        var datoError = parseInt(div[1]);
-        switch(datoError) {
+        var dato = parseInt(div[1]);
+        switch(dato) {
             case 0:
                 crearError("Contraseña incorrecta", "error1", "card");
                 break;

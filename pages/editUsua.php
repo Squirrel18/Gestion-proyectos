@@ -17,6 +17,7 @@
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
         <script src="../js/javaData.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
+        <script src="../js/javaMakeDialog.js" type="text/javascript"></script>
         <script src="../js/javaEditU.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
         <link rel="stylesheet" href="../css/general.css">

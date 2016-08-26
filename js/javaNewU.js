@@ -16,6 +16,7 @@ $(document).ready(function() {
             genRol(datos);
         }
     });
+    lectorUrl();
 });
 
 function genPermisos(dato) {
@@ -111,4 +112,33 @@ function validForm() {
         return false;
     }
     
+}
+
+function lectorUrl() {
+    var url = document.URL;
+    var index = url.indexOf("?");
+    var datoUrl = url.substring(index + 1, url.length);
+    var div = datoUrl.split("=");
+    if(div[0] == "msj") {
+        var dato = parseInt(div[1]);
+        switch(dato) {
+            case 0:
+                createDialog("Nuevo usuario", "El usuario ya existe");
+                break;
+            case 1:
+                createDialog("Nuevo usuario", "No se creo el usuario");
+                break;
+            case 2:
+                createDialog("Nuevo usuario", "No se crearón los permisos");
+                break;
+            case 3:
+                createDialog("Nuevo usuario", "Usuario creado");
+                break;
+            default:
+                window.location.assign("index.php");
+                break;
+        }
+    } else {
+        //window.location.assign("index.php?" + div[0]);
+    }
 }

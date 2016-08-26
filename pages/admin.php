@@ -8,8 +8,8 @@
     } else {
         $nombre = obtenNamePag($_SERVER['PHP_SELF']);
         #PASAR ESTAS DOS FUNCIONES A PRIVADAS
-        echo $obj->getId();
-        print_r($obj->getPer());
+        //echo $obj->getId();
+        //print_r($obj->getPer());
     }
 ?>
 <!DOCTYPE html>
@@ -30,10 +30,12 @@
             <p id="textUser">Nombre de usuario</p>
             <p id="textRol">Sistemas</p>
         </div>
+        <div id="contCard">
         <?php
             require_once '../php/adm.php';
             $obj1 = new genPag($obj->getPer());
             echo $obj1->relPagi();
         ?>
+        </div>
     </body>
 </html>

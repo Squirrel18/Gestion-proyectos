@@ -223,3 +223,111 @@ input::placeholder {
     font-size: 18px;
     cursor: pointer;
 }
+
+#dialogo {
+    position: relative;
+    margin: 0 auto 0 auto;
+    top: 50px;
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+    background: #FFF;
+    box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2), 0 3px 50px 1px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 200ms ease-in-out;
+    -moz-animation: fadeIn 200ms ease-in-out;
+    -webkit-animation: fadeIn 200ms ease-in-out;
+    -o-animation: fadeIn 200ms ease-in-out;
+}
+
+#cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: fadeIn 200ms ease-in-out;
+    -moz-animation: fadeIn 200ms ease-in-out;
+    -webkit-animation: fadeIn 200ms ease-in-out;
+    -o-animation: fadeIn 200ms ease-in-out;
+}
+
+#tituloDialog {
+    font-size: 34px;
+    color: #09556C;
+    position: relative;
+    top: 12%;
+    left: 10%;
+}
+
+#textInfo {
+    font-family: 'Roboto-Regular';
+    font-size: 24px;
+    position: relative;
+    top: 32%;
+    left: 10%;
+    color: #696969;
+}
+
+#btnListo {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    color: #09556C;
+    left: 65%;
+    top: 77%;
+}
+
+#btnListo:hover {
+    border: solid #09556C 1px;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+#btnListo:active {
+    background: #09556C;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px 0px rgba(0, 0, 0, 0.2), 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+    color: #FFF;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-moz-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-o-keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}

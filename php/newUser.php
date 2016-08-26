@@ -52,13 +52,12 @@
             for($vari = 0; $vari < count($contenPer); $vari++) {
                 $sql = "INSERT INTO usupermisos(idUsuario, idPermiso) VALUES(".$ultimoId.", ".$contenPer[$vari].")";
                 if ($conexion->query($sql) === TRUE) {
-                    //echo "New record created successfully";
+                    header('Location: ../pages/nuevUsua.php?msj=3');
                 } else {
                     header('Location: ../pages/nuevUsua.php?msj=2');
                 }
             }
         }
-        header('Location: ../pages/nuevUsua.php?msj=3');
         $conexion->close();
     }
 ?>
