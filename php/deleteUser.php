@@ -4,9 +4,8 @@
     
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $numero = $_POST["numero"];
-        
     }
-    deleteUser("1069755449");
+    deleteUser($numero);
     function deleteUser($num) {
         require 'conexion.php';
         $estado = '0';

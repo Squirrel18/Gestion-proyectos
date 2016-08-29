@@ -21,7 +21,7 @@
         if(isset($nombre) || isset($numero) || isset($descri)) {
             compruebaPro($numero);
         } else {
-            header('Location: ../pages/nuevProye.php');
+            header('Location: ../pages/nuevProye.php?msj=0');
         }
     }
 
@@ -33,6 +33,7 @@
         $resultado = $conexion->query($sql);
         if ($resultado->num_rows > 0) {
             echo "Proyecto con el mismo nombre";
+            header('Location: ../pages/nuevProye.php?msj=1');
         } else {
             creaPro($nombre, $numero, $descri);
         }
@@ -58,13 +59,13 @@
             $stmt->close();
             mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num), 0700);
         } else {
-            echo "No realizo nada";
+            header('Location: ../pages/nuevProye.php?msj=2');
         }
 
         for($vari = 0; $vari < count($contenPer); $vari++) {
             mkdir("../proyectos/".utf8_decode($name)."_".utf8_decode($num)."/".utf8_decode($contenPer[$vari]), 0700);
         }
-        echo "Proyecto creado";
+        header('Location: ../pages/nuevProye.php?msj=3');
         $conexion->close();
     }
 ?>

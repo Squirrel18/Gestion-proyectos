@@ -7,6 +7,7 @@ $(document).ready(function() {
             genCarpetas(datos);
         }
     });
+    lectorUrl();
 });
 
 function genCarpetas(dato) {
@@ -78,5 +79,34 @@ function validNProy() {
         return true;
     } else {
         return false;
+    }
+}
+
+function lectorUrl() {
+    var url = document.URL;
+    var index = url.indexOf("?");
+    var datoUrl = url.substring(index + 1, url.length);
+    var div = datoUrl.split("=");
+    if(div[0] == "msj") {
+        var dato = parseInt(div[1]);
+        switch(dato) {
+            case 0:
+                createDialog("Nuevo proyecto", "Datos vacíos");
+                break;
+            case 1:
+                createDialog("Nuevo usuario", "El proyecto existe");
+                break;
+            case 2:
+                createDialog("Nuevo usuario", "No se creo el proyecto");
+                break;
+            case 3:
+                createDialog("Nuevo usuario", "Proyecto creado");
+                break;
+            default:
+                window.location.assign("../pages/nuevProye.php");
+                break;
+        }
+    } else {
+        //window.location.assign("index.php?" + div[0]);
     }
 }

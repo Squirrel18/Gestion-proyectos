@@ -85,11 +85,38 @@ var patt3 = /[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
 function verificaURL() {
     var url = document.URL;
     var index = url.indexOf("?");
-    var datoUrl = url.substring(index + 1, url.length);
-    var div = datoUrl.split("=");
+    var datoNum, div;
+
+    if(url.indexOf("&", index + 1) > -1) {
+        datoNum = url.substring(index + 1, url.indexOf("&"));
+        div = datoNum.split("=");
+        var msj = url.substring(url.indexOf("&") + 1, url.length);
+        var divMsj = msj.split("=");
+        if(divMsj[0] == "msj") {
+            switch(parseInt(divMsj[1])) {
+                case 0:
+                    createDialog("Editar usuario", "No editó el usuario");
+                    break;
+                case 1:
+                    createDialog("Editar usuario", "No editó los permisos");
+                    break;
+                case 2:
+                    createDialog("Editar usuario", "Usuario actualizado");
+                    break;
+                default:
+                    break;
+            }
+        } else {    
+            alert("mensaje no valido");
+            window.location.assign("../pages/buscarUsua.php");
+        }
+    } else {
+        //alert("no contiene &");
+        datoNum = url.substring(index + 1, url.length);
+        div = datoNum.split("=");
+    }
 
     if(div[0] === "numero") {
-        //alert("Si contiene número");
         if(div[1] == "") {
             alert("URL no valida");
             window.location.assign("../pages/buscarUsua.php");
@@ -263,39 +290,10 @@ function elimUser() {
         dataType: "text", 
         success: function(datos) {
             if(datos === "true") {
-                alert("el usuario se elimino");
+                createDialog("Editar usuario", "Usuario eliminado");
             } else {
-                alert("ocurrio un problema al eliminar");
+                createDialog("Editar usuario", "No elimino el usuario");
             }
         }
     });
-}
-
-function lectorUrl() {
-    var url = document.URL;
-    var index = url.indexOf("?");
-    var datoUrl = url.substring(index + 1, url.length);
-    var div = datoUrl.split("=");
-    if(div[0] == "msj") {
-        var dato = parseInt(div[1]);
-        switch(dato) {
-            case 0:
-                createDialog("Nuevo usuario", "El usuario ya existe");
-                break;
-            case 1:
-                createDialog("Nuevo usuario", "No se creo el usuario");
-                break;
-            case 2:
-                createDialog("Nuevo usuario", "No se crearón los permisos");
-                break;
-            case 3:
-                createDialog("Nuevo usuario", "Usuario creado");
-                break;
-            default:
-                window.location.assign("index.php");
-                break;
-        }
-    } else {
-        //window.location.assign("index.php?" + div[0]);
-    }
 }

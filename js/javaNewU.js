@@ -135,7 +135,7 @@ function lectorUrl() {
                 createDialog("Nuevo usuario", "Usuario creado");
                 break;
             default:
-                window.location.assign("index.php");
+                window.location.assign("../pages/nuevUsua.php");
                 break;
         }
     } else {
