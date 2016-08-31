@@ -28,15 +28,6 @@
                 <p id="pContrasena">Contraseña</p>
                 <input type="submit" id="bIngresa" value="Ingresar">
             </form>
-            <svg id="check">
-                <path id="rutaCheck" d="M8 30 L20 40 L45 3" stroke-width="5" stroke="green" fill="none" stroke-dasharray="70" stroke-dashoffset="70" stroke-linecap="square" stroke-linejoin="round"/>
-                Sorry, your browser does not support inline SVG.
-            </svg>
-            <svg id="noCheck">
-                <path id="rutaCheckX" d="M5 5 L40 40" stroke-width="5" stroke="#B71C1C" fill="none" stroke-dasharray="50" stroke-dashoffset="50" stroke-linecap="square" stroke-linejoin="round"/>
-                <path id="rutaCheckX2" d="M40 5 L5 40" stroke-width="5" stroke="#B71C1C" fill="none" stroke-dasharray="50" stroke-dashoffset="50" stroke-linecap="square" stroke-linejoin="round"/>
-                Sorry, your browser does not support inline SVG.
-            </svg>
         </div>
     </body>
 </html>

@@ -12,12 +12,10 @@ function validUser(dato) {
     var patt1 = /\s/gi;
 
     if(dato == "") {
-        animSvg(70, 50, 50);
         coverDisabled(true);
         habilitaCam(true);
         document.getElementById("contrasena").value = "";
     } else if(patt.test(dato) || patt1.test(dato)) {
-        animSvg(70, 0, 0);
         coverDisabled(true);
         habilitaCam(true);
         crearError("Únicamente números", "error", "card");
@@ -30,12 +28,10 @@ function validUser(dato) {
             dataType: "text", 
             success: function(datos) {
                 if(datos === "true") {
-                    animSvg(0, 50, 50);
                     coverDisabled(false);
                     habilitaCam(false);
                 } else {
                     document.getElementById("contrasena").value = "";
-                    animSvg(70, 0, 0);
                     coverDisabled(true);
                     habilitaCam(true);
                     crearError("Usuario incorrecto", "error", "card");
@@ -71,15 +67,6 @@ function coverDisabled(dato) {
     } else {
         document.getElementById("divDisabled").style.display = "none";
     }
-}
-
-function animSvg(path1, path2, path3) {
-    var ruta = document.getElementById("rutaCheck");
-    var ruta1 = document.getElementById("rutaCheckX");
-    var ruta2 = document.getElementById("rutaCheckX2");
-    ruta.style.strokeDashoffset = path1;//70
-    ruta1.style.strokeDashoffset = path2;//50
-    ruta2.style.strokeDashoffset = path3;//50
 }
 
 function validar() {

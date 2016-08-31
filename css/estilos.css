@@ -14,12 +14,12 @@
     background: #FFF;
     margin: auto;
     padding: 0;
-    border-radius: 7px;
+    border-radius: 2px;
     top: 130px;
     text-align: center;
-    box-shadow: 0 12px 40px 1px rgba(0, 0, 0, 0.2), 0 15px 20px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px 0px rgba(0, 0, 0, 0.2), 0 4px 10px 1px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
-}
+}   
 
 #fontAccountForm {
     font-size: 96px;
