@@ -1,8 +1,12 @@
 <?php
     function verifDatos($dato) {
-        $dato = trim($dato);
-        $dato = stripslashes($dato);
-        $dato = htmlspecialchars($dato);
-        return $dato;
+        if(isset($dato)) {
+            $dato = trim($dato);
+            $dato = stripslashes($dato);
+            $dato = htmlspecialchars($dato);
+            return $dato;
+        } else {
+            return false;
+        }
     }
 ?>

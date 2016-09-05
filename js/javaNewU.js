@@ -1,3 +1,32 @@
+var contenedorJson = new Array();/*Variable que alamcena los datos de la promesa para ser utilizada a lo largo del documento*/
+
+/*Promesa que retorna los datos del rol para ser verificados antes de que envíe el formulario*/
+function promesa() {
+    return new Promise(function(exito, error) {
+        $.ajax({
+            url: "../php/rol.php",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(datos) {
+                if(datos.length > 0) {
+                    exito(datos);
+                } else {
+                    error("ocurrio un error");
+                }
+            }
+        });
+    });
+}
+
+/*Promesa ya realizada*/
+promesa().then(function(exitoRes) {
+    for(var i = 0; i < exitoRes.length; i++) {
+        contenedorJson[i] = exitoRes[i].rol;
+    }
+}, function(errorRes) {
+    alert(errorRes);
+});
+
 $(document).ready(function() {
     $.ajax({
         url: "../php/permit.php",
@@ -50,68 +79,87 @@ function genRol(dato) {
 }
 
 function validForm() {
-    var nombre = document.getElementById("nombre");
-    nombre.addEventListener("focus", function() {
-        nombre.style.borderColor= "#09556C";
-        eliminarError("card");
-    });
-    var numero = document.getElementById("numero");
-    var pass = document.getElementById("contrasena");
-    pass.addEventListener("focus", function() {
-        pass.style.borderColor= "#09556C";
-        eliminarError("card");
-    });
-    var rol = document.getElementById("lista");
-    rol.addEventListener("focus", function() {
-        rol.style.borderColor= "#09556C";
-        eliminarError("card");
-    });
+    /*Se asigna a la variable fields todos los elementos input existentes*/
+    var fields = elementosField();/*Está función elementosField() viene de javaInput.js*/
+    var labels = elementosLabels();
+
+    var nombre = fields[0];
+    var numero = fields[1];
+    var pass = fields[2];
+    var rol = fields[3];
     var contenedor = document.getElementById("permisos").childNodes;
-    var validaNombre = false;
-    var validChecked = false;
 
     var patt = /[0-9]/g;
-    var patt1 = /\s/gi;
+    var patt1 = /\s/g;
+    var patt3 = /[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi;
 
-    if(patt.test(nombre.value)) {
-        nombre.style.borderColor= "#B71C1C";
+    if(patt.test(nombre.value) || patt3.test(nombre.value)) {
+        noValido(fields[0], labels);
         crearError("Únicamente letras", "errorNombre", "card");
         return false;
+    } else {
+        if(patt1.test(pass.value)) {
+            noValido(fields[2], labels);
+            crearError("Contiene espacios en blanco", "errorPass", "card");
+            return false;
+        } else {
+            if(validaRol(fields[3], labels)) {
+                if(validaPermisos(contenedor)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } 
     }
+}
 
-    if(patt1.test(pass.value)) {
-        pass.style.borderColor= "#B71C1C";
-        crearError("Contiene espacios en blanco", "errorPass", "card");
+function validaRol(campo, labels) {
+    var coinciden;
+    for(var i = 0; i < contenedorJson.length; i++) {
+        var iteraDatos = contenedorJson[i].toString();
+        var rol = campo.value;
+        iteraDatos = iteraDatos.toLowerCase();
+        valor = rol.toLowerCase();
+        if(valor == iteraDatos) {
+            coinciden = true;
+            break;
+        } else {
+            coinciden = false;
+        }
+    }
+    if(coinciden) {
+        eliminarError("card");
+        return true;
+    } else {
+        noValido(campo, labels);
+        crearError("Dato no valido", "errorRol", "card");
         return false;
     }
+}
 
-    if(rol.value == "") {
-        rol.style.borderColor= "#B71C1C";
-        crearError("Campo requerido", "errorRol", "card");
-        return false;
-    }
-
+function validaPermisos(contenedor) {
+    var boxChecked;
     for(var i = 0; i < contenedor.length; i++) {
         if(i % 2 == 0) {
             if(contenedor[i].checked) {
-                validChecked = true;
-                eliminarError("card");
+                boxChecked = true;
                 break;
             } else {
-                if(!document.getElementById("textoError")) {
-                    crearError("Requiere una selección", "errorCheck", "card");
-                }
-                validChecked = false;
+                boxChecked = false;
             }
         }
     }
 
-    if(validChecked == true) {
+    if(boxChecked) {
+        eliminarError("card");
         return true;
     } else {
+        crearError("Requiere una selección", "errorCheck", "card");
         return false;
     }
-    
 }
 
 function lectorUrl() {

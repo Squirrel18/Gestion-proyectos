@@ -1,5 +1,4 @@
 <?php
-    //header("Content-type: text/html; charset=utf8");
     require 'permit.php';
     $jsonDeco = json_decode($json);
     echo "<br>";
@@ -15,10 +14,11 @@
             }
         }
 
-        $name = $_POST["nombre"];
-        $numero = $_POST["numero"];
-        $contra = $_POST["pass"];
-        $rol = $_POST["rol"];
+        require_once 'verifData.php';
+        $name = verifDatos($_POST["nombre"]);
+        $numero = verifDatos($_POST["numero"]);
+        $contra = verifDatos($_POST["pass"]);
+        $rol = verifDatos($_POST["rol"]);
         $estado = '1';
         insertDatos($name, $numero, $contra, $rol, $estado);
     }
@@ -26,14 +26,6 @@
     function insertDatos($nom, $num, $pass, $rol, $esta) {
         require 'conexion.php';
         global $contenPer;
-
-        if($conexion->connect_error) {
-            die("Connection failed: " . $conexion->connect_error);
-        } 
-
-        if(!$conexion->set_charset("utf8")) {
-            die("no selecciono el conjunto de caracteres");
-        }
 
         $sql = "SELECT numero FROM usuarios WHERE numero=$num";
         $result = $conexion->query($sql);

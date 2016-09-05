@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    setTimeout(function() {
-        habilitaCam(true);
-        coverDisabled(true);
-    }, 50);
     lectorUrl();
 });
 
@@ -38,34 +34,6 @@ function validUser(dato) {
                 }
             }
         });
-    }
-}
-
-function habilitaCam(dato) {
-    var comprueba;
-    comprueba = dato;
-
-    if(comprueba) {
-        document.getElementById("contrasena").disabled = true;
-        document.getElementById("bIngresa").disabled = true;
-    } else {
-        document.getElementById("contrasena").disabled = false;
-        document.getElementById("bIngresa").disabled = false;
-    }
-}
-
-function coverDisabled(dato) {
-    if(!document.getElementById("divDisabled")) {
-        var comprueba = dato;
-        var p = document.createElement("div");
-        p.id = "divDisabled";
-        document.getElementById("card").appendChild(p);
-    }
-    
-    if(dato) {
-        document.getElementById("divDisabled").style.display = "block";
-    } else {
-        document.getElementById("divDisabled").style.display = "none";
     }
 }
 

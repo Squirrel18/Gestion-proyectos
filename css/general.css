@@ -28,12 +28,17 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+html {
+    height: 100%;
+}
+
 body {
     height: 100%;
-    font-family: 'Roboto-Medium';
+    font-family: 'Roboto-Regular';
     margin: 0;
     padding: 0;
     background: #f5f5f5;
+    position: relative;
 }
 
 p {
@@ -50,47 +55,61 @@ a {
     font-family: 'Roboto-Regular';
     font-size: 30px;
     color: #09556C;
-    top: 3%;
     margin: auto;
 }
 
 input[type="text"] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
-    border-bottom: solid #09556C 1px;
-    margin: 0;
-    padding: 0;
     font-family: 'Roboto-Regular';
-    font-size: 22px;
-    background: rgba(0, 0, 0, 0);
+    font-size: 26px; /*Importante establecer el tamaño de la fuente*/
+    width: 100%; /*Ocupa el tamaño total del padre*/
+    height: calc(100% - 16px); /*El tamaño total del padre menos el espacio de arriba de 15px*/
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(9,85,108,0.60);
+    position: absolute;
+    bottom: 0; /*Para que siempre se encuentre en el footer del padre*/
+    background: rgba(255,255,255,0);
     color: #09556C;
+    left: 0;
 }
 
 input[type="password"] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
-    border-bottom: solid #09556C 1px;
-    margin: 0;
-    padding: 0;
+    width: 100%; /*Ocupa el tamaño total del padre*/
     font-family: 'Roboto-Regular';
-    font-size: 22px;
-    color: #09556C; 
-    background: rgba(0,0,0,0);
+    font-size: 26px; /*Importante establecer el tamaño de la fuente*/
+    height: calc(100% - 16px); /*El tamaño total del padre menos el espacio de arriba de 15px*/
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid rgba(9,85,108,0.60);
+    position: absolute;
+    bottom: 0; /*Para que siempre se encuentre en el footer del padre*/
+    background: rgba(255,255,255,0);
+    color: #09556C;
+    left: 0;
 }
 
 input[type="number"] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
-    border-bottom: solid #09556C 1px;
-    margin: 0;
-    padding: 0;
+    width: 100%; /*Ocupa el tamaño total del padre*/
     font-family: 'Roboto-Regular';
-    font-size: 22px;
-    color: #09556C; 
-    background: rgba(0,0,0,0);
+    font-size: 26px; /*Importante establecer el tamaño de la fuente*/
+    height: calc(100% - 16px); /*El tamaño total del padre menos el espacio de arriba de 15px*/
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid rgba(9,85,108,0.60);
+    position: absolute;
+    bottom: 0; /*Para que siempre se encuentre en el footer del padre*/
+    background: rgba(255,255,255,0);
+    color: #09556C;
+    left: 0;
 }
 
 input[type="search"] {
@@ -115,6 +134,8 @@ input[type="submit"], input[type="button"] {
     font-family: 'Roboto-Medium';
     font-size: 28px;
     background: rgba(0, 0, 0, 0);
+    border: solid #09556C 1px;
+    border-radius: 2px;
     -webkit-transition: box-shadow 0.2s ease-in-out,
                         border 0.5s ease-in-out;
     -moz-transition: box-shadow 0.2s ease-in-out,
@@ -330,4 +351,62 @@ input::placeholder {
 @-o-keyframes fadeOut {
     0% {opacity: 1;}
     100% {opacity: 0;}
+}
+
+.fieldTextL {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Arial';
+    cursor: text;
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+    color: rgba(9,85,108,0.60);
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 4px;
+    left: 0;
+}
+
+.labelAnimate {
+    font-size: 15px;
+    -webkit-transform: translate(0, -30px);
+    -moz-transform: translate(0, -30px);
+    -o-transform: translate(0, -30px);
+    -ms-transform: translate(0, -30px);
+    transform: translate(0, -30px);
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+}
+
+.contInput {
+    position: relative;
+    width: 500px;
+    height: calc(40px + 10px);
+    font-size: 22px;
+    margin: auto;
+    top: 20px;
+    margin-bottom: 25px;
+}
+
+#menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #09556C;
+    cursor: pointer;
+}
+
+#menuNav {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: rebeccapurple;
+    top: 0;
+    left: 0;
 }

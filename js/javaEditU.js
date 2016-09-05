@@ -197,9 +197,9 @@ function rellenaDatos(datos, permisos) {
     var nombre = document.getElementById("nombre");
     var key = document.getElementById("contrasena");
     var rol = document.getElementById("lista");
-    nombre.placeholder = "Nombre: " + datos[0].nombre;
-    key.placeholder = "Contraseña: " + datos[0].contrasena;
-    rol.placeholder = "Rol: " + datos[0].rol;
+    nombre.innerText = "Nombre: " + datos[0].nombre;
+    key.innerText = "Contraseña: " + datos[0].contrasena;
+    rol.innerText = "Rol: " + datos[0].rol;
     for(var i = 0; i < permisos.length; i++) {
         document.getElementById("dato" + permisos[i].idPermiso).checked = true;
     }
@@ -233,7 +233,6 @@ function validar() {
         eliminarError("card");
     });
     var contenedor = document.getElementById("permisos").childNodes;
-    console.log(contenedor);
 
     if(patt2.test(nombre.value) || patt3.test(nombre.value)) {
         crearError("Únicamente carácteres alfabéticos", "errorNombre", "card");
