@@ -48,6 +48,8 @@ p {
 
 a {
     text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 #subTitulo {
@@ -400,13 +402,42 @@ input::placeholder {
     left: 20px;
     color: #09556C;
     cursor: pointer;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
 }
 
 #menuNav {
-    position: absolute;
+    position: fixed;
     width: 300px;
-    height: 100%;
-    background: rebeccapurple;
+    height: 100vh;
+    background: orange;
+    top: 0;
+    left: -300px;
+    z-index: 1;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.menuOpen {
+    transform: translate(300px, 0);
+}
+
+.menuChange {
+    transform: translate(280px, 0) rotate(360deg);
+}
+
+#coverMenu {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
     top: 0;
     left: 0;
 }

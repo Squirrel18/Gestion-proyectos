@@ -109,7 +109,7 @@
                         #Se codifica a utf8
                         $folders = utf8_encode($folders);
                         #Buscar los directorios a partir de $name
-                        if(stristr($folders, $name)) {
+                        //if(stristr($folders, $name)) {
                             #Se reemplaza los espacios de la cadena por '#' para no tener inconvenientes al momento de concatenar
                             $reempla = str_replace(" ", "#", $folders);
                             $total = $direc->path.$reempla;
@@ -122,7 +122,7 @@
 
                             #Son las carpetas que existen
                             echo "<i class='material-icons md-48 fontFolder'>folder</i><p class='lista' onclick="."cambiarDir("."'$total'".")".">$folders</p>";
-                        }
+                        //}
                     } else {
                         
                     }

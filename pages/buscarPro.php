@@ -17,6 +17,7 @@
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
         <script src="../js/javaData.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
+        <script src="../js/menu.js" type="text/javascript"></script>
         <script src="../js/javaFindP.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
         <link rel="stylesheet" href="../css/general.css">
@@ -28,6 +29,20 @@
             <p id="textUser">Nombre de usuario</p>
             <p id="textRol">Sistemas</p>
         </div>
+        <i class="material-icons md-48" id="menu" onclick="openMenu(this)">menu</i>
+        <nav id="menuNav">
+            <section id="headerMenu"></section>
+            <section>
+                <ul>
+                    <li style="font-size: 24px;">Administrar usuarios</li>
+                    <a href="nuevUsua.php">Crear usuario</a><br>
+                    <a href="buscarUsua.php">Editar usuario</a>
+                    <li style="font-size: 24px;">Administrar proyectos</li>
+                    <a href="nuevProye.php">Nuevo proyecto</a><br>
+                    <a href="buscarPro.php">Buscar proyecto</a>
+                <ul>
+            </section>
+        </nav>
         <div id="card">
             <i class="material-icons md-48" id="fontFindP">search</i>
             <p id="textFindP">Buscar proyecto</p>

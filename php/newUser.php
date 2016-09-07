@@ -25,6 +25,13 @@
 
     function insertDatos($nom, $num, $pass, $rol, $esta) {
         require 'conexion.php';
+        if($conexion->connect_error) {
+            die("Connection failed: " . $conexion->connect_error);
+        } 
+
+        if(!$conexion->set_charset("utf8")) {
+            die("no selecciono el conjunto de caracteres");
+        }
         global $contenPer;
 
         $sql = "SELECT numero FROM usuarios WHERE numero=$num";
