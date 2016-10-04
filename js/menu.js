@@ -19,7 +19,7 @@ function openMenu(btn) {
         btn.classList.add("menuChange");
         btn.innerText = "clear";
         btn.style.fontSize = "48px";
-        btn.style.background = "orange";
+        //btn.style.background = "orange";
         toggle = true;
     } else {
         document.body.removeChild(document.getElementById("coverMenu"));

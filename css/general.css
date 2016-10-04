@@ -117,14 +117,19 @@ input[type="number"] {
 input[type="search"] {
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
-    border-bottom: solid 1px #09556C;
-    margin: 0;
-    padding: 0;
     font-family: 'Roboto-Regular';
-    font-size: 22px;
-    color: #09556C; 
-    background: rgba(0, 0, 0, 0);
+    font-size: 26px; /*Importante establecer el tamaño de la fuente*/
+    width: 100%; /*Ocupa el tamaño total del padre*/
+    height: calc(100% - 16px); /*El tamaño total del padre menos el espacio de arriba de 15px*/
+    border: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid rgba(9,85,108,0.60);
+    position: absolute;
+    bottom: 0; /*Para que siempre se encuentre en el footer del padre*/
+    background: rgba(255,255,255,0);
+    color: #09556C;
+    left: 0;
 }
 
 input[type="submit"], input[type="button"] {
@@ -136,7 +141,8 @@ input[type="submit"], input[type="button"] {
     font-family: 'Roboto-Medium';
     font-size: 28px;
     background: rgba(0, 0, 0, 0);
-    border: solid #09556C 1px;
+    /*border: solid #09556C 1px;*/
+    box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2), 0 5px 7px 0px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
     -webkit-transition: box-shadow 0.2s ease-in-out,
                         border 0.5s ease-in-out;
@@ -416,10 +422,10 @@ input::placeholder {
     position: fixed;
     width: 300px;
     height: 100vh;
-    background: orange;
     top: 0;
     left: -300px;
     z-index: 1;
+    background: darkorange;
     -webkit-transition: all 300ms ease-in-out;
     -moz-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;

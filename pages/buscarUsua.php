@@ -17,6 +17,7 @@
         <script src="../js/jquery-2.2.1.min.js" type="text/javascript"></script>
         <script src="../js/javaData.js" type="text/javascript"></script>
         <script src="../js/javaMakeError.js" type="text/javascript"></script>
+        <script src="../js/javaInput.js" type="text/javascript"></script>
         <script src="../js/menu.js" type="text/javascript"></script>
         <script src="../js/javaFindU.js" type="text/javascript"></script>
         <link rel="stylesheet" href="../fonts/stylesheet.css">
@@ -46,7 +47,11 @@
         <div id="card">
             <i class="material-icons md-48" id="fontFind">search</i>
             <p id="subTitulo">Buscar usuario</p>
-            <input type="search" id="buscar" placeholder="Buscar usuario" oninput="busUsuario()">
+            <!--<input type="search" id="buscar" placeholder="Buscar usuario" oninput="busUsuario()">-->
+            <section class="contInput">
+                <input type="search" id="buscar" oninput="busUsuario()" class="fieldInput">
+                <label class="fieldTextL">Buscar<sup>*</sup></label>
+            </section>
             <div id="contenCoin"></div>
         </div>
         <img id="logo" src="../assets/logo.png">
