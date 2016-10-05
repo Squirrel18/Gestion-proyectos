@@ -14,6 +14,7 @@ $( document ).ready(function() {
         });
         inputField[i].addEventListener("input", function() {
             eliminarError("card");
+            busUsuario();
             handler(this, labelField, inputField, 0);
         });
         inputField[i].addEventListener("focusout", function() {

@@ -46,11 +46,11 @@
 
 #contenCoin {
     position: relative;
-    top: 15%;
+    top: 5%;
     padding: 0;
     margin: auto;
     width: 500px;
-    height: 350px;
+    height: 400px;
     overflow: auto;
 }
 

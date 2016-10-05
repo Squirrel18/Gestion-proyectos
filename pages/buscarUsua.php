@@ -49,7 +49,7 @@
             <p id="subTitulo">Buscar usuario</p>
             <!--<input type="search" id="buscar" placeholder="Buscar usuario" oninput="busUsuario()">-->
             <section class="contInput">
-                <input type="search" id="buscar" oninput="busUsuario()" class="fieldInput">
+                <input type="search" id="buscar" class="fieldInput">
                 <label class="fieldTextL">Buscar<sup>*</sup></label>
             </section>
             <div id="contenCoin"></div>
