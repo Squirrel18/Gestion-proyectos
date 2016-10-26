@@ -9,7 +9,8 @@
         require_once '../php/session.php';
         $obj = new sesion();
         $obj->setSession($usuario);
-        comprobarusuario($usuario,$pass);
+        echo $usuario."<br>";
+        echo $pass;
     }
 
     function cerrar($conexi) {

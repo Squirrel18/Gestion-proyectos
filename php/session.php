@@ -5,12 +5,13 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once 'verifData.php';
         $obj = new sesion();
-        $peticion = verifDatos($_POST["requiredD"]);
+        /*$peticion = $_POST["requiredD"];
         if($peticion == 1) {
-            echo $obj->getData();
+            
         } else {
             echo "no data";
-        }
+        }*/
+        echo $obj->getData();
     }
     
     class sesion {
@@ -47,7 +48,7 @@
 
         public function setSession($id) {
             $_SESSION['us'] = $id;
-            $_SESSION['per'] = $this->getPermi();
+            $_SESSION['per'] = $this->getPermi($id);
         }
 
         public function getId() {
@@ -100,12 +101,12 @@
             $conexion->close();
         }
 
-        private function getPermi() {
+        private function getPermi($id) {
             require 'conexion.php';
             if($conexion->connect_error) {
                 die("Connection failed: " . $conexion->connect_error);
             }
-            $sql = "SELECT idPermiso FROM usupermisos INNER JOIN usuarios ON usupermisos.idUsuario=usuarios.Id WHERE usuarios.numero='".$this->getId()."'";
+            $sql = "SELECT idPermiso FROM usupermisos INNER JOIN usuarios ON usupermisos.idUsuario=usuarios.Id WHERE usuarios.numero='".$id."'";
             $result = $conexion->query($sql);
             $cont = array();
             $itera = 0;
